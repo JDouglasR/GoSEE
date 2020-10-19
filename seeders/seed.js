@@ -12,16 +12,34 @@ let userSeed = [
     lastName: "Panakkal",
     email: "josh.panakkal3122@hotmail.com",
     password: "Hello1234",
-    city: "Cleveland"
-    
+    city: "Cleveland",
+    posts: {
+      post: "Fall brings crazy colors as the leaves are changing in #Cleveland!",
+      hashtag: "#Cleveland",
+    }    
   },
   {
     firstName: "Michael",
     lastName: "Jordan",
     email: "mj@hotmail.com",
     password: "Bulls1234",
-    city: "Chicago"    
-  }  
+    city: "Chicago",
+    posts: {
+      post: "Traveling to #Chicago to play basketball!",
+      hashtag: "#Chicago",
+    }      
+  },
+  {
+    firstName: "Scottie",
+    lastName: "Pippen",
+    email: "pippen@hotmail.com",
+    password: "Bulls1234",
+    city: "Chicago",
+    posts: {
+      post: "It gets cold in #Chicago",
+      hashtag: "#Chicago",
+    }      
+  }    
 ];
 
 db.Users.deleteMany({})
@@ -34,3 +52,5 @@ db.Users.deleteMany({})
     console.error(err);
     process.exit(1);
   });
+
+  
