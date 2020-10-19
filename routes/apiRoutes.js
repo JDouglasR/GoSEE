@@ -1,14 +1,30 @@
-const router = require("express").Router();
+const express = require("express");
+const mongoose = require("mongoose");
 const db = require("../models");
+const path = require("path");
 
-router.get("/recipes", (req, res) => {
-  // Use a regular expression to search titles for req.query.q
-  // using case insensitive match. https://docs.mongodb.com/manual/reference/operator/query/regex/index.html
-  db.Recipe.find({
-    title: { $regex: new RegExp(req.query.q, 'i')}
-  })
-    .then(recipes => res.json(recipes))
-    .catch(err => res.status(422).end());
-});
+module.exports = function(app) {
+  app.get("/api/Users", (req, res) => {
+    db.Users.find()
+      .then(data => res.json(data))
+      .catch(err => res.status(422).end());
+  });
+  
+  app.post("/api/Users", (req,res) => {
+    db.Users.create({
+      // firstName: "Test",
+      // lastName: "Test",
+      // email: "Test",
+      // password: "Test",
+      // city: "Test"
+    }).then((data => {
+      res.json(data);
+      console.log(data);  
+    })).catch(err => {
+      res.json(err);
+    });
+  });
+}
 
-module.exports = router;
+
+
