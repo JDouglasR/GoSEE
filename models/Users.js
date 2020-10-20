@@ -25,34 +25,13 @@ const UserSchema = new Schema({
     type: String,
     trim: true
   },
-  posts: [{
-    day: {
-      type: Date,
-      default: Date.now
-    },
-    post: {
-      type: String
-    },
-    hashtag: {
-      type: String
+  posts: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Posts"
     }
-  }]
-  // url string for thumbnail image
-  // thumbnail: {
-  //   type: String,
-  //   default: ""
-  // },
-  // // url for recipe web page - unique index
-  // href: {
-  //   type: String,
-  //   default: "",
-  //   unique: true
-  // },
-
-  // // Not all ingredients, just the recommended ingredients from scraped web pages
-  // // from which seed data was sourced
-  // ingredients: [String]
-});
+  ]
+});  
 
 const Users = mongoose.model("Users", UserSchema);
 
