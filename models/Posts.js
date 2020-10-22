@@ -12,9 +12,13 @@ const PostSchema = new Schema({
     },
     hashtag: {
     type: String
+    },
+    users: {
+        type: Schema.Types.ObjectId,
+        ref: "Users"
     }
 })
 
-const Posts = mongoose.model("Posts", PostSchema);
+const Posts = mongoose.model("Posts", PostSchema, "posts");
 
 module.exports = Posts;
