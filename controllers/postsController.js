@@ -8,10 +8,9 @@ module.exports = {
   // Get all posts from database
   findAll: function(req, res) {
     db.Posts
-      .find(req.query)
-      .sort({date: -1})
+      .find()
       .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+      .catch(err => res.json(err));
 
   }
 }
