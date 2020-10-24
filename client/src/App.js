@@ -1,15 +1,22 @@
 import React, { Component } from "react";
-// import { BrowserRouter, Route, Switch } from "react-router-dom";
-// import Profile from "./pages/Profile";
-// import Home from "./pages/Home";
-// import Error from "./pages/Error";
-// import "./App.css";
-import Posts from "./pages/Posts";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Home from "./pages/Home";
+import Error from "./pages/Error";
+import "./App.css";
 
-function App() {
-  return(
-    <Posts />
-  )
+class App extends Component {
+  render() {
+    return (
+      <BrowserRouter basename={"/react-portfolio"}>
+        <div>
+          <Switch>
+            <Route path="/" component={Home} exact />
+            <Route component={Error} />
+          </Switch>
+        </div>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;
