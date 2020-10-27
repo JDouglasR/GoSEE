@@ -26,7 +26,7 @@ function Feed(props) {
       })
       .catch((err) => console.error(err));
 
-    if (items.length >= 30) {
+    if (items.length >= 500) {
       setHasMore(false);
       return;
     }

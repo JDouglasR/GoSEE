@@ -1,12 +1,12 @@
 import React from "react";
 import "./style.css";
 
-function Header() {
+function Navigation() {
   return (
     <React.Fragment>
-      
+      <h1>This is the Navigation</h1>
     </React.Fragment>
   );
 }
 
-export default Header;
+export default Navigation;

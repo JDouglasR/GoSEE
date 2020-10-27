@@ -6,9 +6,12 @@ module.exports = {
   // Get all posts from database
   findAll: function(req, res) {
     db.Posts
+
       .find()
       .then(dbModel => res.json(dbModel))
       .catch(err => res.json(err));
+
+
   }
 
 }
