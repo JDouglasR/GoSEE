@@ -2,8 +2,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const db = require("../models");
 
-
-// Gets all User data
 module.exports = {
   // Get all posts from database
   findAll: function(req, res) {
@@ -11,8 +9,8 @@ module.exports = {
       .find()
       .then(dbModel => res.json(dbModel))
       .catch(err => res.json(err));
-
   }
+
 }
 
   /* This variable is used to store the users' MongoDB id which will be used   

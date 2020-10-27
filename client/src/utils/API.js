@@ -1,10 +1,13 @@
 import axios from "axios";
 
 export default {
-  // Gets all books
+  // Gets all posts
   getPosts: function () {
     return axios.get("/api/posts/");
   },
+  createUser: function (user) {
+    return axios.post("/api/user/", user);
+  }
   // // Gets the book with the given id
   // getPost: function (id) {
   //   return axios.get("/api/posts/" + id);

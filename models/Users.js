@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+// Requiring bcrypt for password hashing. Using the bcryptjs version as the regular bcrypt module sometimes causes errors on Windows machines
+const bcrypt = require("bcryptjs");
 
 const Schema = mongoose.Schema;
 
@@ -19,7 +21,8 @@ const UserSchema = new Schema({
   },
   password: {
     type: String,
-    trim: true
+    trim: true,
+    bcrypt: true
   },
   city: {
     type: String,
@@ -32,6 +35,8 @@ const UserSchema = new Schema({
     }
   ]
 });  
+
+UserSchema.plugin(require('mongoose-bcrypt'));
 
 const Users = mongoose.model("Users", UserSchema, "users");
 
