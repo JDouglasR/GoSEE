@@ -4,7 +4,7 @@ import "./style.css";
 function Header() {
   return (
     <React.Fragment>
-      
+      <header></header>
     </React.Fragment>
   );
 }

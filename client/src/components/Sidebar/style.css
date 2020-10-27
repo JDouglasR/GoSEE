@@ -1,25 +1,11 @@
-html { 
-    background: url("background.jpg") no-repeat center center fixed;
-    -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;
+.top-right { 
+    font-family: 'Roboto', sans-serif;
+    float: right;
+    margin-top: 20px;
+    margin-right: 20px;
+    font-weight: 900;  
+    font-size: 20px; 
+    color: white; 
+    cursor: pointer;
 }
 
-body { font-family: 'Work Sans', sans-serif;}
-
-.logo { font-family: 'Roboto', sans-serif; font-weight: 900;  font-size: 40px; color: white; padding: 20px; margin-top: 10px; margin-left: 20px; text-decoration: none;}
-.logo span {color: #f7ee24; }
-.tr-nav {font-family: 'Roboto', sans-serif; text-decoration: none; float: right; margin-top: 10px; margin-right: 20px; color: white; cursor: pointer;}
-.tr-nav:hover { color: #f7ee24;}
-
-.bottom-right { position: fixed;  bottom: 100px; right: 50px; color: white; text-align: right; text-shadow: 2px 2px black;}
-.bottom-right h1 {font-family: 'Roboto', sans-serif; color: white; text-align: right; margin-bottom: -15px; }
-.bottom-right button {  font-size: 20px;  background: #f7ee24; border: none;  padding: 10px; }
-.bottom-right button:hover {  opacity: 0.9;}
-
-
-@media only screen and (max-width: 600px) {
-
-.bottom-right { position: fixed;  bottom: 0px; right: 0px; left: 0px; text-align: center; }
-.bottom-right h1 {text-align: center; }
-.bottom-right button { width: 100%;  }
-
-}
