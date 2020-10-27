@@ -3,7 +3,13 @@ const postsController = require("../../controllers/postsController");
 
 // Matches with "/api/books"
 router.route("/")
-  .get(postsController.findAll)
+
+.get((req,res) => {
+  console.log(req);
+  postsController.findAll(req, res);
+})
+  // .get(postsController.findAll)
+
   // .post(booksController.create);
 
 // // Matches with "/api/books/:id"
