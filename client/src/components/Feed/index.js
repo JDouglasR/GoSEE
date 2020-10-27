@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Card } from "@material-ui/core";
 import InfiniteScroll from "react-infinite-scroll-component";
 import API from "../../utils/API";
 
@@ -68,10 +69,10 @@ function Feed(props) {
           <div style={style} key={index}>
             <div className="row">
               <div className="col-md-10">
-                <div className="card-body">
+                <Card>
                   <h5 className="card-title">{i.hashtag}</h5>
                   <p className="card-text">{i.post}</p>
-                </div>
+                </Card>
               </div>
             </div>
           </div>
