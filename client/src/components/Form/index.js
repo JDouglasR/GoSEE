@@ -6,16 +6,20 @@ import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
 
-import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import TabPanel from '../TabPanel';
+import { FormControl, FormControlLabel, InputLabel, Input, FormHelperText } from '@material-ui/core';
 
 
 const useStyles = makeStyles({
   list: {
-    width: 300,
+    width: 400,
   }
 });
+
+
+
 
 export default function TemporaryDrawer() {
   const classes = useStyles();
@@ -31,17 +35,71 @@ export default function TemporaryDrawer() {
     setState({ ...state, [anchor]: open });
   };
 
+    const [value, setValue] = React.useState(0);
+  
+    const handleChange = (event, newValue) => {
+      setValue(newValue);
+    };
+  
+
+
   const list = (anchor) => (
     <div
       className={clsx(classes.list, {
         [classes.fullList]: anchor === 'top' || anchor === 'bottom',
-      })}
+      })} >
 
-    >
-]
         
-      
-      Creat an Account | Login
+      <Tabs
+        value={value}
+        indicatorColor="primary"
+        textColor="primary"
+        onChange={handleChange}
+        aria-label="disabled tabs example"
+        centered
+      >
+        <Tab label="Create an Account" />
+        <Tab label="Login" />
+      </Tabs>
+      <TabPanel  value={value} index={0}>
+        
+      <FormControl>
+        <InputLabel htmlFor="my-input">First Name</InputLabel>
+        <Input id="my-input" aria-describedby="my-helper-text" />
+        <FormHelperText id="my-helper-text">You must enter your first name.</FormHelperText>
+      </FormControl>
+      <FormControl>
+        <InputLabel htmlFor="my-input">Last Name</InputLabel>
+        <Input id="my-input" aria-describedby="my-helper-text" />
+        <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText>
+      </FormControl>
+      <FormControl>
+        <InputLabel htmlFor="my-input">Email address</InputLabel>
+        <Input id="my-input" aria-describedby="my-helper-text" />
+        <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText>
+      </FormControl>
+      <FormControl>
+        <InputLabel htmlFor="my-input">Email address</InputLabel>
+        <Input id="my-input" aria-describedby="my-helper-text" />
+        <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText>
+      </FormControl>
+      <FormControl>
+        <InputLabel htmlFor="my-input">Email address</InputLabel>
+        <Input id="my-input" aria-describedby="my-helper-text" />
+        <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText>
+      </FormControl>
+
+
+
+
+
+
+
+
+      </TabPanel>
+      <TabPanel  value={value} index={1}>
+        Login
+      </TabPanel>
 
 
     
@@ -51,7 +109,7 @@ export default function TemporaryDrawer() {
 
   return (
     <div>
-      <span class="bottom-right">
+      <span className="bottom-right">
        <h1>CTA Title: Want to Travel? </h1>
         <p>
           Paragraph explaining how easy it is to plan trips with our app.

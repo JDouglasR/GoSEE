@@ -1,15 +1,15 @@
 import React from "react";
 import Logo from "../components/Logo";
-import Header from "../components/Header";
+import Form from "../components/Form";
 
 
-function Home() {
+function Landing() {
   return (
     <div className="LandingPage">
       <Logo />
-      <Header />
+      <Form />
     </div>
   );
 }
 
-export default Home;
+export default Landing;
