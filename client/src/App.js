@@ -9,7 +9,7 @@ import "./App.css";
 class App extends Component {
   render() {
     return (
-      <BrowserRouter basename={"/react-portfolio"}>
+      <BrowserRouter basename={"/"}>
         <div>
           <Switch>
             <Route path="/" component={Landing} exact />
