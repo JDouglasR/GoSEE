@@ -8,9 +8,16 @@ module.exports = {
   // Get all posts from database
   findAll: function(req, res) {
     db.Posts
+<<<<<<< HEAD
+      .find(req.query)
+      .sort({date: -1})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+=======
       .find()
       .then(dbModel => res.json(dbModel))
       .catch(err => res.json(err));
+>>>>>>> 5f04adbb4417fe2a75f5df61b37e206dff983848
 
   }
 }
