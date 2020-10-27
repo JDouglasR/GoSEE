@@ -1,14 +1,13 @@
 import React from "react";
-import Logo from "../components/Logo";
 import Header from "../components/Header";
-
+import Feed from "../components/Feed";
 
 function Home() {
   return (
-    <div className="LandingPage">
-      <Logo />
+    <React.Fragment>
       <Header />
-    </div>
+      <Feed />
+    </React.Fragment>
   );
 }
 
