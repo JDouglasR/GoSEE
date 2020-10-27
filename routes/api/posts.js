@@ -2,6 +2,7 @@ const router = require("express").Router();
 const postsController = require("../../controllers/postsController");
 
 // Matches with "/api/books"
+
 router.route("/")
 
 .get((req,res) => {
@@ -11,6 +12,7 @@ router.route("/")
   // .get(postsController.findAll)
 
   // .post(booksController.create);
+
 
 // // Matches with "/api/books/:id"
 // router
