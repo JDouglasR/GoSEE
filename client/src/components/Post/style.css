@@ -5,7 +5,7 @@ div .avatar {width: 70px; height: 70px; border: solid #1f6421 3px; margin-top: -
 div .mainField  { width: 99%; height: 30px;}
 div .locationField { width: 70%; height: 50px; margin-top: 20px;}
 
-div .MuiFormLabel-root.Mui-focused { color: dimgray; padding: 0px 10px; margin-top: 0px; }
+div .MuiFormLabel-root.Mui-focused { color: dimgray; padding: 5px 7px; margin-top: -5px; margin-left: -5px; background: white;}
 div .MuiFormLabel-root { color: dimgray; padding: 0px 10px; font-size: 18px; margin-top: -10px;}
 div .MuiOutlinedInput-input {background: white; border-radius: inherit; padding: 10px 14px;}
 
