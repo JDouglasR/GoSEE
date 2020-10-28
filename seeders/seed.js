@@ -25,102 +25,102 @@ let userSeed = [
 
 let postSeed = [
   {
-    post: "It gets cold in #Chicago",
-    hashtag: "#Chicago",
+    post: "We wander for distraction, but we travel for fulfilment. – Hilaire Belloc",
+    hashtag: "Chicago",
   },
   {
-    post: "Traveling to #Chicago to play basketball!",
-    hashtag: "#Chicago",
+    post: "We live in a wonderful world that is full of beauty, charm and adventure. There is no end to the adventures we can have if only we seek them with our eyes open. – Jawaharial Nehru",
+    hashtag: "Chicago",
   },
   {
-    post: "It gets cold in #Chicago",
-    hashtag: "#Chicago",
+    post: "Travel expands the mind and fills the gap. – Sheda Savage",
+    hashtag: "Cleveland",
   },
   {
-    post: "Traveling to #Chicago to play basketball!",
-    hashtag: "#Chicago",
+    post: "Travel makes one modest. You see what a tiny place you occupy in the world. – Gustave Flaubert",
+    hashtag: "Cleveland",
   },
   {
-    post: "It gets cold in #Chicago",
-    hashtag: "#Chicago",
+    post: "Time flies. It’s up to you to be the navigator. – Robert Orben",
+    hashtag: "Albany",
   },
   {
-    post: "Traveling to #Chicago to play basketball!",
-    hashtag: "#Chicago",
+    post: "The world is full of magic things, patiently waiting for our senses to grow sharper. – W.B. Yeats",
+    hashtag: "Albany",
   },{
     post: "It gets cold in #Chicago",
-    hashtag: "#Chicago",
+    hashtag: "Chicago",
   },
   {
     post: "Traveling to #Chicago to play basketball!",
-    hashtag: "#Chicago",
+    hashtag: "Chicago",
   },
   {
     post: "It gets cold in #Chicago",
-    hashtag: "#Chicago",
+    hashtag: "Chicago",
   },
   {
     post: "Traveling to #Chicago to play basketball!",
-    hashtag: "#Chicago",
+    hashtag: "Chicago",
   },
   {
     post: "It gets cold in #Chicago",
-    hashtag: "#Chicago",
+    hashtag: "Chicago",
   },
   {
     post: "Traveling to #Chicago to play basketball!",
-    hashtag: "#Chicago",
+    hashtag: "Chicago",
   },
   {
     post: "It gets cold in #Chicago",
-    hashtag: "#Chicago",
+    hashtag: "Chicago",
   },
   {
     post: "Traveling to #Chicago to play basketball!",
-    hashtag: "#Chicago",
+    hashtag: "Chicago",
   },
   {
     post: "It gets cold in #Chicago",
-    hashtag: "#Chicago",
+    hashtag: "Chicago",
   },
   {
     post: "Traveling to #Chicago to play basketball!",
-    hashtag: "#Chicago",
+    hashtag: "Chicago",
   },
   {
     post: "It gets cold in #Chicago",
-    hashtag: "#Chicago",
+    hashtag: "Chicago",
   },
   {
     post: "Traveling to #Chicago to play basketball!",
-    hashtag: "#Chicago",
+    hashtag: "Chicago",
   },{
     post: "It gets cold in #Chicago",
-    hashtag: "#Chicago",
+    hashtag: "Chicago",
   },
   {
     post: "Traveling to #Chicago to play basketball!",
-    hashtag: "#Chicago",
+    hashtag: "Chicago",
   },
   {
     post: "It gets cold in #Chicago",
-    hashtag: "#Chicago",
+    hashtag: "Chicago",
   },
   {
     post: "Traveling to #Chicago to play basketball!",
-    hashtag: "#Chicago",
+    hashtag: "Chicago",
   },
   {
     post: "It gets cold in #Chicago",
-    hashtag: "#Chicago",
+    hashtag: "Chicago",
   },
   {
     post: "Traveling to #Chicago to play basketball!",
-    hashtag: "#Chicago",
+    hashtag: "Chicago",
   }                  
 ]
 
-db.Users.deleteMany({})
+db.Posts.deleteMany({})
   .then(() => db.Posts.collection.insertMany(postSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
