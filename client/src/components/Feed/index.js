@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Card } from "@material-ui/core";
+import { Card, Grid } from "@material-ui/core";
 import InfiniteScroll from "react-infinite-scroll-component";
 import API from "../../utils/API";
+import "./style.css";
+
 
 const style = {
   height: 30,
@@ -42,9 +44,10 @@ function Feed(props) {
 
   return (
     <React.Fragment>
+      <Grid className="feed" container direction="row" justify="center" alignItems="center" spacing={2}>
       <h1>Here are the posts!</h1>
       <hr />
-      <InfiniteScroll
+      <InfiniteScroll item sm={6}
         dataLength={items.length}
         next={fetchMoreData}
         hasMore={hasMore}
@@ -78,6 +81,7 @@ function Feed(props) {
           </div>
         ))}
       </InfiniteScroll>
+      </Grid>
     </React.Fragment>
   );
 }
