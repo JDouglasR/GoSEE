@@ -1,25 +1,20 @@
-html { 
-    background: url("background.jpg") no-repeat center center fixed;
-    -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;
-}
+div .container {margin-top: 210px;}
 
-body { font-family: 'Work Sans', sans-serif;}
+div .avatar {width: 70px; height: 70px; border: solid #1f6421 3px; margin-top: -40px;}
 
-.logo { font-family: 'Roboto', sans-serif; font-weight: 900;  font-size: 40px; color: white; padding: 20px; margin-top: 10px; margin-left: 20px; text-decoration: none;}
-.logo span {color: #f7ee24; }
-.tr-nav {font-family: 'Roboto', sans-serif; text-decoration: none; float: right; margin-top: 10px; margin-right: 20px; color: white; cursor: pointer;}
-.tr-nav:hover { color: #f7ee24;}
+div .mainField  { width: 99%; height: 30px;}
+div .locationField { width: 70%; height: 50px; margin-top: 20px;}
 
-.bottom-right { position: fixed;  bottom: 100px; right: 50px; color: white; text-align: right; text-shadow: 2px 2px black;}
-.bottom-right h1 {font-family: 'Roboto', sans-serif; color: white; text-align: right; margin-bottom: -15px; }
-.bottom-right button {  font-size: 20px;  background: #f7ee24; border: none;  padding: 10px; }
-.bottom-right button:hover {  opacity: 0.9;}
+div .MuiFormLabel-root.Mui-focused { color: dimgray; padding: 0px 10px; margin-top: 0px; }
+div .MuiFormLabel-root { color: dimgray; padding: 0px 10px; font-size: 18px; margin-top: -10px;}
+div .MuiOutlinedInput-input {background: white; border-radius: inherit; padding: 10px 14px;}
 
+div .postButton {margin: 20px 0px 10px 10px; width: 27%; height: 40px; background: #f7ee24; font-size: 18px; font-weight: 600;}
+div .postButton:hover {  background: #f7ee24;}
+
+div .MuiOutlinedInput-root.Mui-focused  .MuiOutlinedInput-notchedOutline {border-color: #53900f;}
 
 @media only screen and (max-width: 600px) {
-
-.bottom-right { position: fixed;  bottom: 0px; right: 0px; left: 0px; text-align: center; }
-.bottom-right h1 {text-align: center; }
-.bottom-right button { width: 100%;  }
+    div .avatar {width: 100px; height: 100px; border: solid #1f6421 6px; margin-top: -10px;}
 
 }
