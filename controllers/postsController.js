@@ -9,9 +9,18 @@ module.exports = {
       .find()
       .then(dbModel => res.json(dbModel))
       .catch(err => res.json(err));
-  }
+  },
 
+  // Get all posts with city name
+  findById: function(req, res) {
+    const cityName = req.params.city;
+    db.Posts.find({ hashtag: cityName})
+    .then(dbModel => res.json(dbModel))
+    .catch(err => res.json(err));    
+  }
 }
+
+
 
 /* This variable is used to store the users' MongoDB id which will be used   
 when adding posts*/
