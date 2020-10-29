@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
+import { Card, Grid } from "@material-ui/core";
 import InfiniteScroll from "react-infinite-scroll-component";
 import API from "../../utils/API";
+import "./style.css";
 
 const style = {
-  height: 30,
   border: "1px solid green",
-  margin: 6,
   padding: 8,
+  marginBottom: 5,
 };
 
 function Feed(props) {
   const [items, setItems] = useState([]);
-  const [hasMore, setHasMore] = useState(true);
+  //   const [hasMore, setHasMore] = useState(true);
   //   const [page, setPage] = useState(1);
 
   function fetchMoreData() {
@@ -26,10 +27,10 @@ function Feed(props) {
       })
       .catch((err) => console.error(err));
 
-    if (items.length >= 500) {
-      setHasMore(false);
-      return;
-    }
+    // if (items.length >= 30) {
+    //   setHasMore(false);
+    //   return;
+    // }
     // setTimeout(() => {
     //   setItems(items.concat(Array.from({ length: 20 })));
     // }, 1500);
@@ -41,12 +42,20 @@ function Feed(props) {
 
   return (
     <React.Fragment>
-      <h1>Here are the posts!</h1>
-      <hr />
+      {/* <Grid
+        className="feed"
+        container
+        direction="row"
+        justify="center"
+        alignItems="center"
+        spacing={2}
+      > */}
       <InfiniteScroll
+        item
+        sm={6}
         dataLength={items.length}
         next={fetchMoreData}
-        hasMore={hasMore}
+        // hasMore={hasMore}
         loader={<h4>Loading...</h4>}
         endMessage={
           <p style={{ textAlign: "center" }}>
@@ -66,17 +75,12 @@ function Feed(props) {
       >
         {items.map((i, index) => (
           <div style={style} key={index}>
-            <div className="row">
-              <div className="col-md-10">
-                <div className="card-body">
-                  <h5 className="card-title">{i.hashtag}</h5>
-                  <p className="card-text">{i.post}</p>
-                </div>
-              </div>
-            </div>
+            {i.post}
+            <div>{i.hashtag}</div>
           </div>
         ))}
       </InfiniteScroll>
+      {/* </Grid> */}
     </React.Fragment>
   );
 }

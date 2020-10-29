@@ -1,6 +1,11 @@
 header { 
-    background: url("/images/header.jpg") no-repeat center center fixed;
+    background: url("/images/header.jpg") no-repeat top center fixed;
     -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;
-    height: 400px;
+    position: absolute;
+    height: 300px;
+    width: 100%;
+    top: 0px;
+    z-index: -1;
+
 }
 

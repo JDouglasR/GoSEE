@@ -63,6 +63,7 @@ export default function TemporaryDrawer() {
       </Tabs>
       <TabPanel  value={value} index={0}>
         
+        <div className="lp-form">
       <FormControl>
         <InputLabel htmlFor="my-input">First Name</InputLabel>
         <Input id="my-input" aria-describedby="my-helper-text" />
@@ -71,7 +72,7 @@ export default function TemporaryDrawer() {
       <FormControl>
         <InputLabel htmlFor="my-input">Last Name</InputLabel>
         <Input id="my-input" aria-describedby="my-helper-text" />
-        <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText>
+        <FormHelperText id="my-helper-text">You must enter your last name.</FormHelperText>
       </FormControl>
       <FormControl>
         <InputLabel htmlFor="my-input">Email address</InputLabel>
@@ -88,7 +89,7 @@ export default function TemporaryDrawer() {
         <Input id="my-input" aria-describedby="my-helper-text" />
         <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText>
       </FormControl>
-
+</div>
 
 
 
