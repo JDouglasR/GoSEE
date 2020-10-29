@@ -6,6 +6,18 @@ router.route("/")
 .post((req,res) => {
   userController.create(req, res);
 })
+
+router.route("/login")
+.post((req, res) => {
+  userController.findOne(req, res);
+})
+
+// router.route("/login", passport.authenticate("local"))
+// .post((req, res) => {
+   
+//   res.json({email: req.users.email})
+  
+// })
   // .get(postsController.findAll)
   // .post(booksController.create);
 
