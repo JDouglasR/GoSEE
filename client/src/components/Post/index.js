@@ -1,11 +1,18 @@
 import React from "react";
-import { Grid, Avatar, TextField, Button  } from '@material-ui/core';
+import { Grid, Avatar, TextField, Button } from "@material-ui/core";
 import "./style.css";
 
 function Post() {
   return (
     <React.Fragment>
-       <Grid className="Container" container direction="row" justify="center" alignItems="center" spacing={2}>
+      <Grid
+        className="container"
+        container
+        direction="row"
+        justify="center"
+        alignItems="center"
+        spacing={2}
+      >
         <Grid item sm={1}>
           <Avatar className="avatar" src="/broken-image.jpg" />
         </Grid>
@@ -24,5 +31,3 @@ function Post() {
 }
 
 export default Post;
-
-
