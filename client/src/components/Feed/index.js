@@ -45,9 +45,10 @@ function Feed(props) {
   return (
     <React.Fragment>
       <Grid className="feed" container direction="row" justify="center" alignItems="center" spacing={2}>
+      <Grid item sm={6}>
       <h1>Here are the posts!</h1>
       <hr />
-      <InfiniteScroll item sm={6}
+      <InfiniteScroll
         dataLength={items.length}
         next={fetchMoreData}
         hasMore={hasMore}
@@ -81,6 +82,7 @@ function Feed(props) {
           </div>
         ))}
       </InfiniteScroll>
+      </Grid>
       </Grid>
     </React.Fragment>
   );

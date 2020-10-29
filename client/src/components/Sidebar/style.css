@@ -1,3 +1,8 @@
 .top-right {font-family: 'Roboto', sans-serif; font-weight: 600; font-size: 20px; float: right; margin-top: 10px; margin-right: 20px; color: white; cursor: pointer;}
 .top-right:hover { color: #f7ee24;}
 
+
+
+@media only screen and (max-width: 600px) {
+    .MuiDrawer-paper { width: 250px;}
+}
