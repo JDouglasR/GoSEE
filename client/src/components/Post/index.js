@@ -22,11 +22,13 @@ function Post() {
             className="mainField"
             label="Share plans for any future trips"
             variant="outlined"
+            required="true"
           />
           <TextField
             className="locationField"
             label="#Location"
             variant="outlined"
+            required="true"
           />
           {/* <TextField className="mainField" label="Share reviews/plans of taken or future trips" />
           <TextField className="locationField" label="#Location" /> */}

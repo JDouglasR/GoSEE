@@ -36,6 +36,13 @@ function Feed(props) {
     // }, 1500);
   }
 
+  //   API.getCityPosts()
+  //     .then((res) => {
+  //       console.log(res);
+  //       setItems(items.concat(res.data));
+  //     })
+  //     .catch((err) => console.error(err));
+
   useEffect(() => {
     fetchMoreData();
   }, []);
