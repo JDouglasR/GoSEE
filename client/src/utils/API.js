@@ -9,9 +9,9 @@ export default {
     return axios.post("/api/user/", user);
   },
   // // Gets the book with the given id
-  getCityPosts: function (id) {
-    return axios.get("/api/posts/" + id);
-  }
+  getCityPosts: function (city) {
+    return axios.get("/api/posts/" + city);
+  },
   // // Deletes the book with the given id
   // deleteBook: function (id) {
   //   return axios.delete("/api/posts/" + id);

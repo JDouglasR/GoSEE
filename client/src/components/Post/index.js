@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Grid, Avatar, TextField, Button } from "@material-ui/core";
 import "./style.css";
 
-function Post() {
+function Post(props) {
+  const citySearchInput = useRef(null);
   return (
     <React.Fragment>
       <Grid
@@ -39,8 +40,14 @@ function Post() {
             className="searchField"
             label="Search by City"
             variant="outlined"
+            ref={citySearchInput}
           />
-          <Button id="" className="searchButton" variant="contained">
+          <Button
+            id=""
+            className="searchButton"
+            variant="contained"
+            onClick={() => props.getCityPosts(citySearchInput.current.value)}
+          >
             Search
           </Button>
         </Grid>
