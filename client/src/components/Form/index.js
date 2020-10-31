@@ -163,9 +163,7 @@ export default function TemporaryDrawer() {
             </FormHelperText>
           </FormControl>
           <FormControl>
-            <button htmlFor="my-input" onClick={handleFormSubmit}>
-              Submit
-            </button>
+            <Button  htmlFor="my-input" className="submitButton" variant="contained" onClick={handleFormSubmit}>Submit</Button>
           </FormControl>
         </div>
       </TabPanel>
