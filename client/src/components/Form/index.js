@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import clsx from 'clsx';
 import "./style.css";
 import { makeStyles } from '@material-ui/core/styles';
@@ -32,7 +33,10 @@ export default function TemporaryDrawer() {
     email: "",
     password: "",
     city: ""
-});
+  });
+
+  let history = useHistory();
+
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -53,13 +57,14 @@ export default function TemporaryDrawer() {
       [evt.target.name]: value
     });    
   }
-  // Submit form 
+ 
   const handleFormSubmit = event => {
     event.preventDefault();    
     console.log(formInput);
     API.createUser(formInput)
       .then( () => {
-        console.log("Success!");      
+        console.log("Success!");  
+        history.push("/feed");
       })
       .catch(err => console.log(err));
   }; 
