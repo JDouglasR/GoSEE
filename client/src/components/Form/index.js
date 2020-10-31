@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import clsx from 'clsx';
 import "./style.css";
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
+import API from "../../utils/API";
 
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -17,39 +18,57 @@ const useStyles = makeStyles({
     width: 400,
   }
 });
-
-
-
-
 export default function TemporaryDrawer() {
   const classes = useStyles();
   const [state, setState] = React.useState({
     right: false,
   });
+  const [value, setValue] = React.useState(0);
+
+  // Set initial state
+  const [formInput, setFormInput] = useState({
+    firstName: " ",
+    lastName: " ",
+    email: "",
+    password: "",
+    city: ""
+});
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
     }
-
     setState({ ...state, [anchor]: open });
+  };    
+  
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
   };
 
-    const [value, setValue] = React.useState(0);
-  
-    const handleChange = (event, newValue) => {
-      setValue(newValue);
-    };
-  
-
+  // Handle input change from form and update state
+  const handleInputChange = evt => {
+    const value = evt.target.value;
+    setFormInput({
+      ...formInput,
+      [evt.target.name]: value
+    });    
+  }
+  // Submit form 
+  const handleFormSubmit = event => {
+    event.preventDefault();    
+    console.log(formInput);
+    API.createUser(formInput)
+      .then( () => {
+        console.log("Success!");      
+      })
+      .catch(err => console.log(err));
+  }; 
 
   const list = (anchor) => (
     <div
       className={clsx(classes.list, {
         [classes.fullList]: anchor === 'top' || anchor === 'bottom',
-      })} >
-
-        
+      })} >        
       <Tabs
         value={value}
         indicatorColor="primary"
@@ -58,55 +77,47 @@ export default function TemporaryDrawer() {
         aria-label="disabled tabs example"
         centered
       >
-        <Tab label="Create an Account" />
-        <Tab label="Login" />
+      <Tab label="Create an Account" />
+      <Tab label="Login" />
       </Tabs>
-      <TabPanel  value={value} index={0}>
-        
+      <TabPanel  value={value} index={0}>        
         <div className="lp-form">
-      <FormControl>
-        <InputLabel htmlFor="my-input">First Name</InputLabel>
-        <Input id="my-input" aria-describedby="my-helper-text" />
-        <FormHelperText id="my-helper-text">You must enter your first name.</FormHelperText>
-      </FormControl>
-      <FormControl>
-        <InputLabel htmlFor="my-input">Last Name</InputLabel>
-        <Input id="my-input" aria-describedby="my-helper-text" />
-        <FormHelperText id="my-helper-text">You must enter your last name.</FormHelperText>
-      </FormControl>
-      <FormControl>
-        <InputLabel htmlFor="my-input">Email address</InputLabel>
-        <Input id="my-input" aria-describedby="my-helper-text" />
-        <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText>
-      </FormControl>
-      <FormControl>
-        <InputLabel htmlFor="my-input">Email address</InputLabel>
-        <Input id="my-input" aria-describedby="my-helper-text" />
-        <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText>
-      </FormControl>
-      <FormControl>
-        <InputLabel htmlFor="my-input">Email address</InputLabel>
-        <Input id="my-input" aria-describedby="my-helper-text" />
-        <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText>
-      </FormControl>
-</div>
+          <FormControl>
+            <InputLabel htmlFor="my-input">First Name</InputLabel>
+            <Input id="my-input" name="firstName" aria-describedby="my-helper-text" onChange={handleInputChange}/>
+            <FormHelperText id="my-helper-text">You must enter your first name.</FormHelperText>
+          </FormControl>
+          <FormControl>
+            <InputLabel htmlFor="my-input">Last Name</InputLabel>
+            <Input id="my-input" name="lastName" aria-describedby="my-helper-text" onChange={handleInputChange} />
+            <FormHelperText id="my-helper-text">You must enter your last name.</FormHelperText>
+          </FormControl>
+          <FormControl>
+            <InputLabel htmlFor="my-input">Email address</InputLabel>
+            <Input id="my-input" name="email" aria-describedby="my-helper-text" onChange={handleInputChange}/>
+            <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText>
+          </FormControl>
+          <FormControl>
+            <InputLabel htmlFor="my-input">Password</InputLabel>
+            <Input id="my-input" name="password" aria-describedby="my-helper-text" onChange={handleInputChange}/>
+            <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText>            
+          </FormControl>
+          <FormControl>
+          <InputLabel htmlFor="my-input">City</InputLabel>
+            <Input id="my-input" name="city" aria-describedby="my-helper-text" onChange={handleInputChange}/>
+            <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText>
+          </FormControl>
+          <FormControl>
+            <button htmlFor="my-input" onClick={handleFormSubmit}>Submit</button>
+          </FormControl>
 
-
-
-
-
-
-
+        </div>
       </TabPanel>
-      <TabPanel  value={value} index={1}>
+      <TabPanel  value={value} index={1}> 
         Login
-      </TabPanel>
-
-
-    
+      </TabPanel>    
     </div>
-  );
-  
+  ); 
 
   return (
     <div>
