@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Card, Grid } from "@material-ui/core";
 import InfiniteScroll from "react-infinite-scroll-component";
-import API from "../../utils/API";
+
 import "./style.css";
 
 const style = {
@@ -11,35 +11,6 @@ const style = {
 };
 
 function Feed(props) {
-  const [items, setItems] = useState([]);
-  //   const [hasMore, setHasMore] = useState(true);
-  //   const [page, setPage] = useState(1);
-
-  function fetchMoreData() {
-    // a fake async api call like which sends
-    // 20 more records in 1.5 secs
-    // API.getPosts(setPage(page + 1));
-
-    API.getPosts()
-      .then((res) => {
-        console.log(res);
-        setItems(items.concat(res.data));
-      })
-      .catch((err) => console.error(err));
-
-    // if (items.length >= 30) {
-    //   setHasMore(false);
-    //   return;
-    // }
-    // setTimeout(() => {
-    //   setItems(items.concat(Array.from({ length: 20 })));
-    // }, 1500);
-  }
-
-  useEffect(() => {
-    fetchMoreData();
-  }, []);
-
   return (
     <React.Fragment>
       {/* <Grid
@@ -53,8 +24,8 @@ function Feed(props) {
       <InfiniteScroll
         item
         sm={6}
-        dataLength={items.length}
-        next={fetchMoreData}
+        dataLength={props.items.length}
+        next={props.showAllPosts}
         // hasMore={hasMore}
         loader={<h4>Loading...</h4>}
         endMessage={
@@ -73,7 +44,7 @@ function Feed(props) {
         //   <h3 style={{ textAlign: "center" }}>&#8593; Release to refresh</h3>
         // }
       >
-        {items.map((i, index) => (
+        {props.items.map((i, index) => (
           <div style={style} key={index}>
             {i.post}
             <div>{i.hashtag}</div>

@@ -1,2 +1,5 @@
-@media only screen and (max-width: 600px) {
-}
+.infinite-scroll-component div { border-radius: 5px; font-family: 'Work Sans', sans-serif;}
+.infinite-scroll-component div:hover {background-color: #eeeeee;}
+
+.infinite-scroll-component div div {font-weight: 600; color: #1f6421}
+
