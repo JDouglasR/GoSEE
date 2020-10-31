@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import API from "../../utils/API"
 import clsx from "clsx";
 import "./style.css";
 import { makeStyles } from "@material-ui/core/styles";
@@ -120,7 +121,7 @@ export default function TemporaryDrawer() {
             <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText>
           </FormControl>
           <FormControl>
-            <button htmlFor="my-input" onClick={handleFormSubmit}>Submit</button>
+            <Button  htmlFor="my-input" className="submitButton" variant="contained" onClick={handleFormSubmit}>Submit</Button>
           </FormControl>
 
         </div>

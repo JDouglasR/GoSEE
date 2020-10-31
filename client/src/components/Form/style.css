@@ -8,6 +8,8 @@ body { font-family: 'Work Sans', sans-serif;}
 
 .lp-form div .MuiInputBase-input { width: 300px;}
 
+div .MuiFormControl-root { margin-top: 20px;}
+
 div .submitButton {margin: 20px 0px; height: 40px; background: #f7ee24; font-size: 18px; font-weight: 600;}
 div .submitButton:hover {  background: #f7ee24;}
 
