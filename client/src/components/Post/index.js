@@ -3,7 +3,8 @@ import { Grid, Avatar, TextField, Button } from "@material-ui/core";
 import "./style.css";
 
 function Post(props) {
-  const citySearchInput = useRef(null);
+  const citySearchInput = useRef();
+
   return (
     <React.Fragment>
       <Grid
@@ -40,13 +41,18 @@ function Post(props) {
             className="searchField"
             label="Search by City"
             variant="outlined"
-            ref={citySearchInput}
+            inputRef={citySearchInput}
           />
           <Button
             id=""
             className="searchButton"
             variant="contained"
-            onClick={() => props.getCityPosts(citySearchInput.current.value)}
+            onClick={() => {
+              const name = citySearchInput.current.value;
+              const nameCapitalized =
+                name.charAt(0).toUpperCase() + name.slice(1);
+              props.getCityPosts(nameCapitalized);
+            }}
           >
             Search
           </Button>

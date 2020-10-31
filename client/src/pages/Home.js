@@ -11,7 +11,12 @@ import { Container } from "@material-ui/core";
 function Home() {
   const [items, setItems] = useState([]);
 
-  function fetchMoreData() {
+  //   function handleInputChange(event) {
+  //     const { value } = event.target;
+  //     setSearch(value);
+  //   }
+
+  function showAllPosts() {
     API.getPosts()
       .then((res) => {
         console.log(res);
@@ -28,17 +33,20 @@ function Home() {
     // }, 1500);
   }
 
-  function getCityPosts() {
-    API.getCityPosts()
+  function getCityPosts(city) {
+    API.getCityPosts(city)
       .then((res) => {
-        console.log(res);
-        setItems(items.concat(res.data));
+        setItems(res.data);
       })
       .catch((err) => console.error(err));
   }
 
   useEffect(() => {
-    fetchMoreData();
+    getCityPosts();
+  }, []);
+
+  useEffect(() => {
+    showAllPosts();
   }, []);
 
   return (
@@ -48,7 +56,7 @@ function Home() {
       <Header />
       <Container>
         <Post getCityPosts={getCityPosts} />
-        <Feed fetchMoreData={fetchMoreData} items={items} />
+        <Feed showAllPosts={showAllPosts} items={items} />
       </Container>
     </React.Fragment>
   );

@@ -25,7 +25,7 @@ function Feed(props) {
         item
         sm={6}
         dataLength={props.items.length}
-        next={props.fetchMoreData}
+        next={props.showAllPosts}
         // hasMore={hasMore}
         loader={<h4>Loading...</h4>}
         endMessage={
