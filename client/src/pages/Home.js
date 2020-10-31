@@ -41,9 +41,14 @@ function Home() {
       .catch((err) => console.error(err));
   }
 
-  useEffect(() => {
-    getCityPosts();
-  }, []);
+  function makeAPost(post) {
+    console.log(post);
+    API.savePost(post)
+      .then((res) => {
+        setItems(items.concat(res.data));
+      })
+      .catch((err) => console.error(err));
+  }
 
   useEffect(() => {
     showAllPosts();
@@ -55,7 +60,7 @@ function Home() {
       <Sidebar />
       <Header />
       <Container>
-        <Post getCityPosts={getCityPosts} />
+        <Post getCityPosts={getCityPosts} makeAPost={makeAPost} />
         <Feed showAllPosts={showAllPosts} items={items} />
       </Container>
     </React.Fragment>
