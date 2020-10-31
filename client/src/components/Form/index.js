@@ -63,33 +63,34 @@ export default function TemporaryDrawer() {
       </Tabs>
       <TabPanel  value={value} index={0}>
         
-        <div className="lp-form">
+      <div className="lp-form">
       <FormControl>
         <InputLabel htmlFor="my-input">First Name</InputLabel>
-        <Input id="my-input" aria-describedby="my-helper-text" />
+        <Input id="firstName" aria-describedby="my-helper-text" />
         <FormHelperText id="my-helper-text">You must enter your first name.</FormHelperText>
       </FormControl>
       <FormControl>
         <InputLabel htmlFor="my-input">Last Name</InputLabel>
-        <Input id="my-input" aria-describedby="my-helper-text" />
+        <Input id="lastName" aria-describedby="my-helper-text" />
         <FormHelperText id="my-helper-text">You must enter your last name.</FormHelperText>
       </FormControl>
       <FormControl>
         <InputLabel htmlFor="my-input">Email address</InputLabel>
-        <Input id="my-input" aria-describedby="my-helper-text" />
+        <Input id="email" aria-describedby="my-helper-text" />
         <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText>
       </FormControl>
       <FormControl>
-        <InputLabel htmlFor="my-input">Email address</InputLabel>
-        <Input id="my-input" aria-describedby="my-helper-text" />
-        <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText>
+        <InputLabel htmlFor="my-input">Password</InputLabel>
+        <Input id="password" aria-describedby="my-helper-text" />
+        <FormHelperText id="my-helper-text">Password must be 8-20 characters.</FormHelperText>
       </FormControl>
       <FormControl>
-        <InputLabel htmlFor="my-input">Email address</InputLabel>
-        <Input id="my-input" aria-describedby="my-helper-text" />
-        <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText>
+        <InputLabel htmlFor="my-input">Confirm Password</InputLabel>
+        <Input id="confirmPassword" aria-describedby="my-helper-text" />
+        <FormHelperText id="my-helper-text">Password must match.</FormHelperText>
       </FormControl>
-</div>
+      <Button id="submitButton" className="submitButton" variant="contained">Create Account</Button>
+      </div>
 
 
 
@@ -99,7 +100,21 @@ export default function TemporaryDrawer() {
 
       </TabPanel>
       <TabPanel  value={value} index={1}>
-        Login
+
+      <div className="lp-form">  
+      <FormControl>
+        <InputLabel htmlFor="my-input">Email address</InputLabel>
+        <Input id="email" aria-describedby="my-helper-text" />
+        <FormHelperText id="my-helper-text"></FormHelperText>
+      </FormControl>
+      <FormControl>
+        <InputLabel htmlFor="my-input">Password</InputLabel>
+        <Input id="password" aria-describedby="my-helper-text" />
+        <FormHelperText id="my-helper-text"></FormHelperText>
+      </FormControl>
+      <Button id="submitButton" className="submitButton" variant="contained">Login</Button>
+      </div>
+
       </TabPanel>
 
 
