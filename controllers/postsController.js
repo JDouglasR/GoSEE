@@ -2,8 +2,10 @@ const express = require("express");
 const mongoose = require("mongoose");
 const db = require("../models");
 
+var userId;
 
 module.exports = {
+  
   // Get all posts from database
   findAll: function(req, res) {
     db.Posts
@@ -18,9 +20,29 @@ module.exports = {
     db.Posts.find({ hashtag: cityName})
     .then(dbModel => res.json(dbModel))
     .catch(err => res.json(err));    
+  },
+
+  // Save user posts
+  savePost: function(req, res) {
+    db.Posts.create(req.body)
+    .then(dbPost => {
+      res.json(dbPost)
+    })
+    .catch(err => res.json(err));
   }
 }
 
+//Post request to add posts to database and update user collection
+// app.post("/submit", ({body}, res) => {
+//   db.Posts.create(body)
+//     .then(({_id}) => db.Users.findOneAndUpdate({_id: userId}, { $push: { posts: _id } }, { new: true }))
+//     .then(dbUsers => {
+//       res.json(dbUsers);
+//     })
+//     .catch(err => {
+//       res.json(err);
+//     });
+// });
 
 
 /* This variable is used to store the users' MongoDB id which will be used   
@@ -42,17 +64,7 @@ userId variable with id*/
 // });
 
 
-// Post request to add posts to database and update user collection
-// app.post("/submit", ({body}, res) => {
-//   db.Posts.create(body)
-//     .then(({_id}) => db.Users.findOneAndUpdate({_id: userId}, { $push: { posts: _id } }, { new: true }))
-//     .then(dbUsers => {
-//       res.json(dbUsers);
-//     })
-//     .catch(err => {
-//       res.json(err);
-//     });
-// });
+// 
 
 // Get all posts for user
 // app.get("/posts", (req, res) => {

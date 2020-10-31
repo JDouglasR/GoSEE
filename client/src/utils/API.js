@@ -12,12 +12,11 @@ export default {
   getCityPosts: function (city) {
     return axios.get("/api/posts/" + city);
   },
+  savePost: function (post) {
+    return axios.post("/api/posts/", post);
+  }
   // // Deletes the book with the given id
   // deleteBook: function (id) {
   //   return axios.delete("/api/posts/" + id);
-  // },
-  // // Saves a book to the database
-  // saveBook: function (bookData) {
-  //   return axios.post("/api/posts", bookData);
   // },
 };
