@@ -1,4 +1,11 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import clsx from 'clsx';
+import "./style.css";
+import { makeStyles } from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
+import Button from '@material-ui/core/Button';
+import List from '@material-ui/core/List';
 import API from "../../utils/API";
 import clsx from "clsx";
 import "./style.css";
@@ -37,8 +44,11 @@ export default function TemporaryDrawer() {
     lastName: " ",
     email: "",
     password: "",
-    city: "",
+    city: ""
   });
+
+  let history = useHistory();
+
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -59,16 +69,17 @@ export default function TemporaryDrawer() {
     const value = evt.target.value;
     setFormInput({
       ...formInput,
-      [evt.target.name]: value,
-    });
-  };
-  // Submit form
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
+      [evt.target.name]: value
+    });    
+  }
+ 
+  const handleFormSubmit = event => {
+    event.preventDefault();    
     console.log(formInput);
     API.createUser(formInput)
-      .then(() => {
-        console.log("Success!");
+      .then( () => {
+        console.log("Success!");  
+        history.push("/feed");
       })
       .catch((err) => console.log(err));
   };
