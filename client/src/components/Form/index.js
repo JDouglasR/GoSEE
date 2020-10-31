@@ -160,9 +160,26 @@ export default function TemporaryDrawer() {
           </FormControl>
         </div>
       </TabPanel>
-      <TabPanel value={value} index={1}>
-        Login
+
+      <TabPanel  value={value} index={1}>
+
+      <div className="lp-form">  
+      <FormControl>
+        <InputLabel htmlFor="my-input">Email address</InputLabel>
+        <Input id="email" aria-describedby="my-helper-text" />
+        <FormHelperText id="my-helper-text"></FormHelperText>
+      </FormControl>
+      <FormControl>
+        <InputLabel htmlFor="my-input">Password</InputLabel>
+        <Input id="password" aria-describedby="my-helper-text" />
+        <FormHelperText id="my-helper-text"></FormHelperText>
+      </FormControl>
+      <Button id="submitButton" className="submitButton" variant="contained">Login</Button>
+      </div>
+
       </TabPanel>
+
+
     </div>
   );
 
