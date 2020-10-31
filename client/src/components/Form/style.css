@@ -8,12 +8,14 @@ body { font-family: 'Work Sans', sans-serif;}
 
 .lp-form div .MuiInputBase-input { width: 300px;}
 
+div .submitButton {margin: 20px 0px; height: 40px; background: #f7ee24; font-size: 18px; font-weight: 600;}
+div .submitButton:hover {  background: #f7ee24;}
+
+
 @media only screen and (max-width: 600px) {
 .bottom-right { position: fixed;  bottom: 0px; right: 0px; left: 0px; text-align: center; }
 .bottom-right h1 {text-align: center; }
 .bottom-right button { width: 100%;  }
 .lp-form div .MuiInputBase-input { width: 200px;}
 .MuiDrawer-paper { width: 250px;}
-
-
 }
