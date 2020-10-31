@@ -1,11 +1,5 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import clsx from 'clsx';
-import "./style.css";
-import { makeStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import Button from '@material-ui/core/Button';
-import List from '@material-ui/core/List';
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import API from "../../utils/API";
 import clsx from "clsx";
 import "./style.css";
@@ -13,7 +7,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import Button from "@material-ui/core/Button";
 import List from "@material-ui/core/List";
-
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import TabPanel from "../TabPanel";
@@ -44,11 +37,10 @@ export default function TemporaryDrawer() {
     lastName: " ",
     email: "",
     password: "",
-    city: ""
+    city: "",
   });
 
   let history = useHistory();
-
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -69,16 +61,16 @@ export default function TemporaryDrawer() {
     const value = evt.target.value;
     setFormInput({
       ...formInput,
-      [evt.target.name]: value
-    });    
-  }
- 
-  const handleFormSubmit = event => {
-    event.preventDefault();    
+      [evt.target.name]: value,
+    });
+  };
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
     console.log(formInput);
     API.createUser(formInput)
-      .then( () => {
-        console.log("Success!");  
+      .then(() => {
+        console.log("Success!");
         history.push("/feed");
       })
       .catch((err) => console.log(err));
@@ -111,6 +103,7 @@ export default function TemporaryDrawer() {
               name="firstName"
               aria-describedby="my-helper-text"
               onChange={handleInputChange}
+              required
             />
             <FormHelperText id="my-helper-text">
               You must enter your first name.
@@ -123,6 +116,7 @@ export default function TemporaryDrawer() {
               name="lastName"
               aria-describedby="my-helper-text"
               onChange={handleInputChange}
+              required
             />
             <FormHelperText id="my-helper-text">
               You must enter your last name.
@@ -133,8 +127,10 @@ export default function TemporaryDrawer() {
             <Input
               id="my-input"
               name="email"
+              type="email"
               aria-describedby="my-helper-text"
               onChange={handleInputChange}
+              required
             />
             <FormHelperText id="my-helper-text">
               We'll never share your email.
@@ -145,8 +141,10 @@ export default function TemporaryDrawer() {
             <Input
               id="my-input"
               name="password"
+              type="password"
               aria-describedby="my-helper-text"
               onChange={handleInputChange}
+              required
             />
             <FormHelperText id="my-helper-text">
               We'll never share your email.
@@ -172,25 +170,37 @@ export default function TemporaryDrawer() {
         </div>
       </TabPanel>
 
-      <TabPanel  value={value} index={1}>
-
-      <div className="lp-form">  
-      <FormControl>
-        <InputLabel htmlFor="my-input">Email address</InputLabel>
-        <Input id="email" aria-describedby="my-helper-text" />
-        <FormHelperText id="my-helper-text"></FormHelperText>
-      </FormControl>
-      <FormControl>
-        <InputLabel htmlFor="my-input">Password</InputLabel>
-        <Input id="password" aria-describedby="my-helper-text" />
-        <FormHelperText id="my-helper-text"></FormHelperText>
-      </FormControl>
-      <Button id="submitButton" className="submitButton" variant="contained">Login</Button>
-      </div>
-
+      <TabPanel value={value} index={1}>
+        <div className="lp-form">
+          <FormControl>
+            <InputLabel htmlFor="my-input">Email address</InputLabel>
+            <Input
+              id="email"
+              aria-describedby="my-helper-text"
+              type="email"
+              required
+            />
+            <FormHelperText id="my-helper-text"></FormHelperText>
+          </FormControl>
+          <FormControl>
+            <InputLabel htmlFor="my-input">Password</InputLabel>
+            <Input
+              id="password"
+              aria-describedby="my-helper-text"
+              type="password"
+              required
+            />
+            <FormHelperText id="my-helper-text"></FormHelperText>
+          </FormControl>
+          <Button
+            id="submitButton"
+            className="submitButton"
+            variant="contained"
+          >
+            Login
+          </Button>
+        </div>
       </TabPanel>
-
-
     </div>
   );
 
