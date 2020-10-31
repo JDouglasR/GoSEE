@@ -4,6 +4,8 @@ import "./style.css";
 
 function Post(props) {
   const citySearchInput = useRef();
+  const postInput = useRef();
+  const hashtagInput = useRef();
 
   return (
     <React.Fragment>
@@ -24,14 +26,26 @@ function Post(props) {
             className="mainField"
             label="Share plans for any future trips"
             variant="outlined"
+            inputRef={postInput}
           />
           <TextField
             id=""
             className="locationField"
             label="#Location"
             variant="outlined"
+            inputRef={hashtagInput}
           />
-          <Button id="" className="postButton" variant="contained">
+          <Button
+            id=""
+            className="postButton"
+            variant="contained"
+            onClick={() =>
+              props.makeAPost({
+                post: postInput.current.value,
+                hashtag: hashtagInput.current.value,
+              })
+            }
+          >
             Post
           </Button>
         </Grid>
