@@ -1,8 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const db = require("../models");
-
-var userId;
+const user = require("./userController");
 
 module.exports = {
   
@@ -23,12 +22,15 @@ module.exports = {
   },
 
   // Save user posts
-  savePost: function(req, res) {
-    db.Posts.create(req.body)
-    .then(dbPost => {
-      res.json(dbPost)
+  savePost: function({body}, res) {
+    db.Posts.create(body)
+    .then(({_id}) => db.Users.findOneAndUpdate({_id: user.userId}, { $push: { posts: _id } }, { new: true }))
+    .then(dbUsers => {
+      res.json(dbUsers);
     })
-    .catch(err => res.json(err));
+    .catch(err => {
+      res.json(err);
+    });
   }
 }
 
