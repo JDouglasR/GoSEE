@@ -42,10 +42,13 @@ function Home() {
   }
 
   function makeAPost(post) {
-    console.log(post);
     API.savePost(post)
       .then((res) => {
-        setItems(items.concat(res.data));
+        if (res) {
+          setItems(items.concat(res.data));
+        } else {
+          showAllPosts();
+        }
       })
       .catch((err) => console.error(err));
   }
