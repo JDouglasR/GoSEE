@@ -6,13 +6,13 @@ import "./style.css";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import Button from "@material-ui/core/Button";
-import List from "@material-ui/core/List";
+// import List from "@material-ui/core/List";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import TabPanel from "../TabPanel";
 import {
   FormControl,
-  FormControlLabel,
+  //   FormControlLabel,
   InputLabel,
   Input,
   FormHelperText,
@@ -163,9 +163,7 @@ export default function TemporaryDrawer() {
             </FormHelperText>
           </FormControl>
           <FormControl>
-            <button htmlFor="my-input" onClick={handleFormSubmit}>
-              Submit
-            </button>
+            <Button  htmlFor="my-input" className="submitButton" variant="contained" onClick={handleFormSubmit}>Submit</Button>
           </FormControl>
         </div>
       </TabPanel>
