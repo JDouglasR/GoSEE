@@ -11,7 +11,17 @@ module.exports = {
         })
         .catch(err => console.log(err));
     },
-
+    // Get user info based on whose logged in
+    findOne: function(req, res) {
+        db.Users.find({ _id: this.userId })
+        .then(dbUsers => {
+           res.json(dbUsers);        
+        })    
+        .catch(err => {
+           res.json(err);
+        }); 
+    },
+    // Verify user
     findOneAndVerify: function(req, res) {
         db.Users
         .findOne({ email: req.body.email}, function (err, user) {
@@ -28,8 +38,5 @@ module.exports = {
             });              
         })           
         .catch(err => res.json(err));        
-    },
-   
-
-    
+    },    
 }

@@ -7,15 +7,31 @@ module.exports = {
   
   // Get all posts from database
   findAll: function(req, res) {
-    db.Posts
-      .find()
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.json(err));
+    db.Users.aggregate([
+      {
+        $lookup:
+        {
+            from: "posts",
+            localField: "posts",
+            foreignField: "_id",
+            as: "posts"
+        }
+      },
+      {
+        $unwind: "$posts"
+      }
+  ])
+  .then(dbUsers => {
+    return res.json(dbUsers);        
+    })   
+    .catch(err => {
+      res.json(err);
+    });
   },
 
   // Get all posts with city name
   findById: function(req, res) {
-    const cityName = req.params.city;    
+    const cityName = req.params.city;     
     db.Users.aggregate([
           {
             $lookup:
@@ -34,8 +50,8 @@ module.exports = {
         var x = dbUsers.filter(city => {
           return city.posts.hashtag.toLowerCase() === cityName.toLowerCase();
         })
-            res.json(x);        
-          })   
+          res.json(x);        
+        })   
         .catch(err => {
           res.json(err);
         });
@@ -54,58 +70,5 @@ module.exports = {
   }
 }
 
-
-// Route to get all posts using a city variable (ex/ cleveland)
-// app.get("/posts/:city", (req, res) => {
-//   const cityName = req.params.city;
-//   db.Users.aggregate([
-//     {
-//       $lookup:
-//       {
-//           from: "posts",
-//           localField: "posts",
-//           foreignField: "_id",
-//           as: "posts"
-//       }
-//     },
-//     {
-//       $unwind: "$posts"
-//     }
-// ])
-// .then(dbUsers => {
-//   var x = dbUsers.filter(city => {
-//     return city.posts.hashtag.toLowerCase() === cityName.toLowerCase();
-//   })
-//       res.json(x);        
-//     })   
-//   .catch(err => {
-//     res.json(err);
-//   });
-// });
-
-// Get all users with their posts
-// app.get("/populated", (req, res) => {
-//   db.Users.aggregate([
-//       {
-//         $lookup:
-//         {
-//         from: "posts",
-//         localField: "posts",
-//         foreignField: "_id",
-//         as: "posts"
-//         }
-//       },
-//       {
-//         $unwind: "$posts"
-//       }
-//   ])
-//   .then(dbUsers => {
-//       res.json(dbUsers);        
-//       })   
-
-//     .catch(err => {
-//       res.json(err);
-//     });
-// });
 
 
