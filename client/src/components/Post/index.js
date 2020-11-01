@@ -39,12 +39,14 @@ function Post(props) {
             id=""
             className="postButton"
             variant="contained"
-            onClick={() =>
+            onClick={() => {
               props.makeAPost({
                 post: postInput.current.value,
                 hashtag: hashtagInput.current.value,
-              })
-            }
+              });
+              postInput.current.value = "";
+              hashtagInput.current.value = "";
+            }}
           >
             Post
           </Button>
@@ -66,6 +68,7 @@ function Post(props) {
               const nameCapitalized =
                 name.charAt(0).toUpperCase() + name.slice(1);
               props.getCityPosts(nameCapitalized);
+              citySearchInput.current.value = "";
             }}
           >
             Search
