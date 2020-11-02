@@ -1,6 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 import "./style.css";
+import { Avatar } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 
@@ -39,7 +40,17 @@ export default function TemporaryDrawer() {
         [classes.fullList]: anchor === "top" || anchor === "bottom",
       })}
     >
-      Profile Sidebar
+      
+      <div className="sidebar-header"> 
+        <Avatar className="sidebar-avatar" src="/broken-image.jpg" />
+        <p className="sidebar-name">Name Name</p>
+      </div>
+      
+      <p className="sidebar-email">Email</p>
+      <p className="sidebar-logout">Log out</p>
+
+      <p className="sidebar-posts">Users Posts</p>
+       
     </div>
   );
 

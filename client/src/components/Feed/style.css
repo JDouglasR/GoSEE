@@ -1,5 +1,40 @@
-.infinite-scroll-component div { border-radius: 5px; font-family: 'Work Sans', sans-serif;}
-.infinite-scroll-component div:hover {background-color: #eeeeee;}
+div .postAvatar {
+    width: 40px; 
+    height: 40px; 
+    border: solid #1f6421 1px; 
+    float: left;
+    margin-right: 10px;
+}
+div .postName {
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: -5px;
+    margin-bottom: 2px;
+    padding-top: 5px;
+}
 
-.infinite-scroll-component div div {font-weight: 600; color: #1f6421}
+.infinite-scroll-component  { 
+    max-width: 700px;
+    margin: auto;
+    margin-top: 15px;
+}
 
+.infinite-scroll-component div { 
+    font-family: 'Work Sans', sans-serif;
+}
+
+.infinite-scroll-component div:hover {
+    background-color: #eeeeee;
+}
+
+.infinite-scroll-component .hashtag {
+    font-weight: 300; 
+    color: #1f6421;
+    margin-top: 3px;
+}
+.infinite-scroll-component .time {
+    font-weight: 300; 
+    color: #1f6421;
+    font-size: 13px;
+    margin-top: 4px;
+}
