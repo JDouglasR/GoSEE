@@ -20,7 +20,7 @@ function Post(props) {
         <Grid item sm={1}>
           <Avatar className="avatar" src="/broken-image.jpg" />
         </Grid>
-        <Grid item sm={6}>
+        <Grid item md={6} sm={12}>
           <TextField
             id=""
             className="mainField"
@@ -51,7 +51,7 @@ function Post(props) {
             Post
           </Button>
         </Grid>
-        <Grid item sm={6}>
+        <Grid item md={6} sm={12}>
           <TextField
             id="citySearch"
             className="searchField"

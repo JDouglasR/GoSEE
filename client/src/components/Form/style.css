@@ -1,23 +1,69 @@
+body { 
+    font-family: 'Work Sans', sans-serif;
+}
 
-body { font-family: 'Work Sans', sans-serif;}
+.bottom-right { 
+    position: fixed;  
+    bottom: 100px; 
+    right: 50px; 
+    color: white; 
+    text-align: right; 
+    text-shadow: 2px 2px black;
+}
+.bottom-right h1 {
+    font-family: 'Roboto', sans-serif; 
+    color: white; 
+    text-align: right; 
+    margin-bottom: -15px; 
+}
+.bottom-right button { 
+    height: 40px; 
+    background: #f7ee24; 
+    font-size: 18px; 
+    font-weight: 600; 
+}
+.bottom-right button:hover { 
+    background: #f7ee24; 
+}
 
-.bottom-right { position: fixed;  bottom: 100px; right: 50px; color: white; text-align: right; text-shadow: 2px 2px black;}
-.bottom-right h1 {font-family: 'Roboto', sans-serif; color: white; text-align: right; margin-bottom: -15px; }
-.bottom-right button { height: 40px; background: #f7ee24; font-size: 18px; font-weight: 600; }
-.bottom-right button:hover { background: #f7ee24; }
+.lp-form div .MuiInputBase-input { 
+    width: 300px;
+}
 
-.lp-form div .MuiInputBase-input { width: 300px;}
+div .MuiFormControl-root { 
+    margin-top: 20px;
+}
 
-div .MuiFormControl-root { margin-top: 20px;}
-
-div .submitButton {margin: 20px 0px; height: 40px; background: #f7ee24; font-size: 18px; font-weight: 600;}
-div .submitButton:hover {  background: #f7ee24;}
+div .submitButton {
+    margin: 20px 0px; 
+    height: 40px; 
+    background: #f7ee24; 
+    font-size: 18px; 
+    font-weight: 600;
+}
+div .submitButton:hover {  
+    background: #f7ee24;
+}
 
 
 @media only screen and (max-width: 600px) {
-.bottom-right { position: fixed;  bottom: 0px; right: 0px; left: 0px; text-align: center; }
-.bottom-right h1 {text-align: center; }
-.bottom-right button { width: 100%;  }
-.lp-form div .MuiInputBase-input { width: 200px;}
-.MuiDrawer-paper { width: 250px;}
+    .bottom-right { 
+        position: fixed;  
+        bottom: 0px; 
+        right: 0px; 
+        left: 0px; 
+        text-align: center; 
+    }
+    .bottom-right h1 {
+        text-align: center; 
+    }
+    .bottom-right button { 
+        width: 100%;  
+    }
+    .lp-form div .MuiInputBase-input { 
+        width: 200px;
+    }
+    .MuiDrawer-paper { 
+        width: 250px;
+    }
 }
