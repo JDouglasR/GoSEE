@@ -67,13 +67,13 @@ export default function TemporaryDrawer() {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log(formInput);
     API.createUser(formInput)
-      .then(() => {
-        console.log("Success!");
-        history.push("/feed");
+      .then(user => {           
+          history.push("/feed");      
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        if(err) console.log("Unauthorized!")
+      });
   };
 
   const list = (anchor) => (

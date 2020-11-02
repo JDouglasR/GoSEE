@@ -6,10 +6,12 @@ module.exports = {
         db.Users
         .create(req.body)
         .then(dbUsers => {
-        res.json(dbUsers._id); 
+        res.json(dbUsers); 
         module.exports.userId = dbUsers._id;               
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            res.status(401).json(err)
+        });
     },
     // Get user info based on whose logged in
     findOne: function(req, res) {
@@ -30,6 +32,7 @@ module.exports = {
             user.comparePassword(req.body.password, function(err, isMatch) {
                 if (err) throw err;
                 else if (isMatch && isMatch === true) {
+                    
                     res.json(user._id);
                     module.exports.userId = user._id
                 } else {
