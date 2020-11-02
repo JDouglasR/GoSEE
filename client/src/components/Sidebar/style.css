@@ -1,8 +1,63 @@
-.top-right {font-family: 'Roboto', sans-serif; font-weight: 600; font-size: 20px; float: right; margin-top: 10px; margin-right: 20px; color: white; cursor: pointer;}
-.top-right:hover { color: #f7ee24;}
+.top-right {
+    font-family: 'Roboto', sans-serif; 
+    font-weight: 600; 
+    font-size: 20px; 
+    float: right; 
+    margin-top: 10px; 
+    margin-right: 20px; 
+    color: white; cursor: pointer;
+    text-shadow: 2px 2px black;
+}
+.top-right:hover { 
+    color: #f7ee24;
+}
 
+.sidebar-header {
+    background-color: #1f6421;
+    width: 100%;
+    height: 200px;
+    margin-top: -20px;
+}
+div .sidebar-avatar {
+    width: 70px; 
+    height: 70px; 
+    border: solid #1f6421 5px; 
+    float: left;
+    margin: 155px 15px 10px 15px; 
+}
+.sidebar-name {
+    color: white;
+    padding-top: 175px;
+    font-weight: 600;
+    font-size: 18px;
+}
+.sidebar-email {
+    color: #1f6421;
+    margin-top: 5px;
+    font-weight: 400;
+    font-size: 16px;
+}
+.sidebar-logout {
+    margin: 25px 30px 15px;
+    font-weight: 400;
+    font-size: 14px;
+}
+.sidebar-logout:hover {
+    color: #1f6421;
+    cursor: pointer;
+}
 
+.sidebar-posts {
+    margin: 25px 30px 15px;
+}
 
 @media only screen and (max-width: 600px) {
-    .MuiDrawer-paper { width: 250px;}
+    .MuiDrawer-paper { 
+        width: 250px;
+    }
+    .top-right {
+        float: none; 
+        margin-top: 0px; 
+        margin-left: 30px; 
+    }
 }
