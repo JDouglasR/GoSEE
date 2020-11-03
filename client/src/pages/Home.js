@@ -19,7 +19,6 @@ function Home() {
   function showAllPosts() {
     API.getPosts()
       .then((res) => {
-        console.log(res);
         setItems(items.concat(res.data));
       })
       .catch((err) => console.error(err));

@@ -20,7 +20,8 @@ function Feed(props) {
         spacing={2}
       > */}
       <InfiniteScroll
-        item sm={6}
+        item
+        sm={6}
         dataLength={props.items.length}
         next={props.showAllPosts}
         // hasMore={hasMore}
@@ -43,15 +44,17 @@ function Feed(props) {
       >
         {props.items
           .map((i, index) => {
-            const date = new Date(i.day);
+            const date = new Date(i.posts.day);
             return (
               <div style={style} key={index}>
-                <p className="postName">Name Name</p>
-                {i.post}
+                <p className="postName">
+                  {i.firstName} {i.lastName}
+                </p>
+                {i.posts.post}
                 <div
                   style={{ display: "flex", justifyContent: "space-between" }}
                 >
-                  <span className="hashtag">#{i.hashtag}</span>
+                  <span className="hashtag">#{i.posts.hashtag}</span>
                   <span className="time">
                     {new Intl.DateTimeFormat("en-US", {
                       month: "short",
