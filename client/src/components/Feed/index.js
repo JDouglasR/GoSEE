@@ -44,27 +44,32 @@ function Feed(props) {
       >
         {props.items
           .map((i, index) => {
-            const date = new Date(i.posts.day);
-            return (
-              <div style={style} key={index}>
-                <p className="postName">
-                  {i.firstName} {i.lastName}
-                </p>
-                {i.posts.post}
-                <div
-                  style={{ display: "flex", justifyContent: "space-between" }}
-                >
-                  <span className="hashtag">#{i.posts.hashtag}</span>
-                  <span className="time">
-                    {new Intl.DateTimeFormat("en-US", {
-                      month: "short",
-                      year: "numeric",
-                      day: "2-digit",
-                    }).format(date)}
-                  </span>
+            console.log(i);
+            if (i.posts) {
+              const date = new Date(i.posts.day);
+              return (
+                <div style={style} key={index}>
+                  <p className="postName">
+                    {i.firstName} {i.lastName}
+                  </p>
+                  {i.posts.post}
+                  <div
+                    style={{ display: "flex", justifyContent: "space-between" }}
+                  >
+                    <span className="hashtag">#{i.posts.hashtag}</span>
+                    <span className="time">
+                      {new Intl.DateTimeFormat("en-US", {
+                        month: "short",
+                        year: "numeric",
+                        day: "2-digit",
+                      }).format(date)}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            );
+              );
+            } else {
+              return "";
+            }
           })
           .reverse()}
       </InfiniteScroll>
