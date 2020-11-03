@@ -5,18 +5,22 @@ export default {
   getPosts: function () {
     return axios.get("/api/posts/");
   },
+  // Create user account info
   createUser: function (user) {
     return axios.post("/api/user/", user);
   },
-  // // Gets the posts with the given id
+  // Gets posts by city name
   getCityPosts: function (city) {
     return axios.get("/api/posts/" + city);
   },
+  // Save posts to database
   savePost: function (post) {
     return axios.post("/api/posts/", post);
-  },
-  // // Deletes the book with the given id
-  // deleteBook: function (id) {
-  //   return axios.delete("/api/posts/" + id);
-  // },
+  },  
+  // Get logged in user info
+  getUser: function () {
+    return axios.get("/api/user/user_data")
+  }
+
+  
 };
