@@ -5,7 +5,7 @@ const isAuthenticated = require("../../config/middleware/isAuthenticated");
 // Matches with "/api/posts"
 router
   .route("/")
-  .all(isAuthenticated)
+  //   .all(isAuthenticated)
   .get((req, res) => {
     postsController.findAll(req, res);
   })
