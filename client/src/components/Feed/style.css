@@ -13,26 +13,26 @@ div .postName {
     padding-top: 5px;
 }
 
-.infinite-scroll-component  { 
+div .infinite-scroll-component  { 
     max-width: 700px;
     margin: auto;
     margin-top: 15px;
 }
 
-.infinite-scroll-component div { 
+div .infinite-scroll-component div { 
     font-family: 'Work Sans', sans-serif;
 }
 
-.infinite-scroll-component div:hover {
+div .infinite-scroll-component div:hover {
     background-color: #eeeeee;
 }
 
-.infinite-scroll-component .hashtag {
+div .infinite-scroll-component .hashtag {
     font-weight: 300; 
     color: #1f6421;
     margin-top: 3px;
 }
-.infinite-scroll-component .time {
+div .infinite-scroll-component .time {
     font-weight: 300; 
     color: #1f6421;
     font-size: 13px;
