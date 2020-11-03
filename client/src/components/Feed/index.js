@@ -20,7 +20,8 @@ function Feed(props) {
         spacing={2}
       > */}
       <InfiniteScroll
-        item sm={6}
+        item
+        sm={6}
         dataLength={props.items.length}
         next={props.showAllPosts}
         // hasMore={hasMore}
@@ -46,7 +47,9 @@ function Feed(props) {
             const date = new Date(i.day);
             return (
               <div style={style} key={index}>
-                <p className="postName">Name Name</p>
+                <p className="postName">
+                  {i.firstName} {i.lastName}
+                </p>
                 {i.post}
                 <div
                   style={{ display: "flex", justifyContent: "space-between" }}
