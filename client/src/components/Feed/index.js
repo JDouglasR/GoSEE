@@ -44,17 +44,17 @@ function Feed(props) {
       >
         {props.items
           .map((i, index) => {
-            const date = new Date(i.day);
+            const date = new Date(i.posts.day);
             return (
               <div style={style} key={index}>
                 <p className="postName">
                   {i.firstName} {i.lastName}
                 </p>
-                {i.post}
+                {i.posts.post}
                 <div
                   style={{ display: "flex", justifyContent: "space-between" }}
                 >
-                  <span className="hashtag">#{i.hashtag}</span>
+                  <span className="hashtag">#{i.posts.hashtag}</span>
                   <span className="time">
                     {new Intl.DateTimeFormat("en-US", {
                       month: "short",
