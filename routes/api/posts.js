@@ -1,28 +1,26 @@
 const router = require("express").Router();
 const postsController = require("../../controllers/postsController");
+const isAuthenticated = require("../../config/middleware/isAuthenticated");
 
 // Matches with "/api/posts"
-router.route("/")
-.get((req,res) => {
-  postsController.findAll(req, res);  
-})
+router
+  .route("/")
+  .all(isAuthenticated)
+  .get((req, res) => {
+    postsController.findAll(req, res);
+  })
+  .post((req, res) => {
+    postsController.savePost(req, res);
+  });
 
 // Route for getting posts with city name
-router.route("/:city")
-.get((req, res) => {
+router.route("/:city").get((req, res) => {
   postsController.findById(req, res);
-})
+});
 
-// Save Post to database
-router.route("/")
-.post((req, res) => {
-  postsController.savePost(req, res);
-})
+// .get(postsController.findAll)
 
-  // .get(postsController.findAll)
-
-  // .post(booksController.create);
-
+// .post(booksController.create);
 
 // // Matches with "/api/books/:id"
 // router
