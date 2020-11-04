@@ -8,7 +8,7 @@ router.route("/").post((req, res) => {
 // Login route
 router
   .route("/login")
-  .all(passport.authenticate("local"))
+  // .all(passport.authenticate("local"))
   .post((req, res) => {
     userController.findOneAndVerify(req, res);
   });

@@ -40,6 +40,11 @@ export default function TemporaryDrawer() {
     city: "",
   });
 
+  const [loginInput, setLoginInput] = useState({
+    email: "",
+    password: ""
+  })
+
   let history = useHistory();
 
   const toggleDrawer = (anchor, open) => (event) => {
@@ -65,15 +70,38 @@ export default function TemporaryDrawer() {
     });
   };
 
+  // Handle input change from form and update state
+  const handleLoginChange = (evt) => {
+    const value = evt.target.value;
+    setLoginInput({
+      ...loginInput,
+      [evt.target.name]: value,
+    });
+   
+  };
+
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log(formInput);
     API.createUser(formInput)
-      .then(() => {
-        console.log("Success!");
-        history.push("/feed");
+      .then(user => {           
+          history.push("/feed");      
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        if(err) console.log("Unauthorized!")
+      });
+  };
+
+  const handleLoginSubmit = (event) => {
+    event.preventDefault();
+    console.log(loginInput)
+    API.loginUser(loginInput)
+      .then(() => {  
+                 
+          history.push("/feed");      
+      })
+      .catch((err) => {
+        if(err) console.log("Unauthorized!")
+      });
   };
 
   const list = (anchor) => (
@@ -184,6 +212,8 @@ export default function TemporaryDrawer() {
               aria-describedby="my-helper-text"
               type="email"
               required
+              name= "email"
+              onChange={handleLoginChange}
             />
             <FormHelperText id="my-helper-text"></FormHelperText>
           </FormControl>
@@ -194,6 +224,8 @@ export default function TemporaryDrawer() {
               aria-describedby="my-helper-text"
               type="password"
               required
+              name="password"
+              onChange={handleLoginChange}
             />
             <FormHelperText id="my-helper-text"></FormHelperText>
           </FormControl>
@@ -201,6 +233,7 @@ export default function TemporaryDrawer() {
             id="submitButton"
             className="submitButton"
             variant="contained"
+            onClick={handleLoginSubmit}
           >
             Login
           </Button>

@@ -20,6 +20,10 @@ export default {
   // Get logged in user info
   getUser: function () {
     return axios.get("/api/user/user_data")
+  },
+  // Login verification 
+  loginUser: function (user) {
+    return axios.post("/api/user/login", user);
   }
 
   

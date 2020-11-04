@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const db = require("../models");
 const user = require("./userController");
+const session = require("express-session");
 
 module.exports = {
   // Get all posts from database
@@ -21,6 +22,7 @@ module.exports = {
     ])
       .then((dbUsers) => {
         return res.json(dbUsers);
+        
       })
       .catch((err) => {
         res.json(err);
@@ -55,21 +57,20 @@ module.exports = {
   },
 
   // Save user posts
-  savePost: function (req, res) {
+  savePost: function({body}, res) {
+    // console.log(body);
+    // db.Posts.create(body)
+    // .then(({_id}) => db.Users.findOneAndUpdate({_id: body.id}, { $push: { posts: _id } }, { new: true }))
+    // .then(dbUsers => {
+    //   res.json(dbUsers);
+    // })
+    // .catch(err => {
+    //   res.json(err);
+    // });
     db.Posts.create(req.body)
-      .then(({ _id }) => {
-        console.log(req.user);
-        db.Users.findOneAndUpdate(
-          { _id: req.user._id },
-          { $push: { posts: _id } },
-          { new: true }
-        );
-      })
-      .then((dbUsers) => {
-        res.json(dbUsers);
-      })
-      .catch((err) => {
-        res.json(err);
-      });
-  },
+    .then(dbPost => {
+      res.json(dbPost)
+    })
+    .catch(err => res.json(err));
+  }
 };
