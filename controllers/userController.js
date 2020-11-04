@@ -1,7 +1,9 @@
 const db = require("../models");
+const express = require("express");
+const session = require("express-session");
 
 module.exports = {    
-    userId: "",
+    
     create: function(req, res) {
         db.Users
         .create(req.body)
@@ -34,7 +36,9 @@ module.exports = {
                 else if (isMatch && isMatch === true) {
                     
                     res.json(user._id);
-                    module.exports.userId = user._id
+                   // req.session.key = value 
+                    // req.session.id = user._id;
+                    // console.log(req.session.id);
                 } else {
                     return res.status(401).send();                        
                 }                    

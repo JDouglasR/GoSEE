@@ -7,14 +7,22 @@ import Error from "./pages/Error";
 import "./App.css";
 
 class App extends Component {
+
+  state = {id: undefined};
+
+
+  setUser = (id) => {
+    this.setState({id})
+  }
+
   render() {
     return (
       <BrowserRouter basename={"/"}>
         <div>
           <Switch>
             <Route path="/" component={Landing} exact />
-            <Route path="/feed" component={Home} exact />
-            <Route path="/profile" component={Profile} />
+            <Route path="/feed" component={Home} exact id={this.state.id}/>
+            <Route path="/profile" component={Profile} id={this.state.id}/>
             <Route component={Error} />
           </Switch>
         </div>

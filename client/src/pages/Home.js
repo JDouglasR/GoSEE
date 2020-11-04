@@ -7,8 +7,9 @@ import Feed from "../components/Feed";
 import API from "../utils/API";
 
 import { Container } from "@material-ui/core";
+import { PromiseProvider } from "mongoose";
 
-function Home() {
+function Home(props) {
   const [items, setItems] = useState([]);
 
   //   function handleInputChange(event) {
@@ -62,7 +63,7 @@ function Home() {
       <Sidebar />
       <Header />
       <Container>
-        <Post getCityPosts={getCityPosts} makeAPost={makeAPost} />
+        <Post getCityPosts={getCityPosts} makeAPost={makeAPost} id={props.id} />
         <Feed showAllPosts={showAllPosts} items={items} />
       </Container>
     </React.Fragment>
