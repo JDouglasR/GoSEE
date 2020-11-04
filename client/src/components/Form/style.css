@@ -26,6 +26,25 @@ body {
     background: #f7ee24; 
 }
 
+div .PrivateTabIndicator-colorPrimary-12 {
+    background-color: #1f6421;
+}
+div .PrivateTabIndicator-colorPrimary-9 {
+    background-color: #1f6421;
+}
+div .PrivateTabIndicator-colorPrimary-3 {
+    background-color: #1f6421;
+}
+div .MuiTab-textColorPrimary.Mui-selected {
+    color: #1f6421;
+}
+div .MuiFormLabel-root .Mui-focused {
+    background-color: red;
+}
+div .MuiInput-underline:after {
+    border-bottom: 2px solid #f7ee24;
+}
+
 .lp-form div .MuiInputBase-input { 
     width: 300px;
 }
@@ -46,6 +65,7 @@ div .submitButton:hover {
 }
 
 
+
 @media only screen and (max-width: 600px) {
     .bottom-right { 
         position: fixed;  
@@ -63,7 +83,20 @@ div .submitButton:hover {
     .lp-form div .MuiInputBase-input { 
         width: 200px;
     }
-    .MuiDrawer-paper { 
-        width: 250px;
+    div .MuiDrawer-paper { 
+        width: 260px;
     }
+    .MuiTabs-flexContainer {
+        width: 220px;
+    }
+    div .MuiTabs-flexContainer {
+        display: block;
+    }
+    .MuiTypography-body1 {
+        width: 230px;
+    }
+    div div .makeStyles-list-1 {
+        width: 224px;
+    }
+
 }
