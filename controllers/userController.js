@@ -17,13 +17,26 @@ module.exports = {
     },
     // Get user info based on whose logged in
     findOne: function(req, res) {
-        db.Users.find({ _id: req.body.id })
-        .then(dbUsers => {
-           res.json(dbUsers);        
-        })    
-        .catch(err => {
-           res.json(err);
-        }); 
+        db.Users.aggregate([
+            {
+              $lookup: {
+                from: "posts",
+                localField: "posts",
+                foreignField: "_id",
+                as: "posts",
+              },
+            },
+            {
+              $unwind: "$posts",
+            },
+          ])
+            .then((dbUsers) => {
+              return res.json(dbUsers);
+            })
+            .catch((err) => {
+              res.json(err);
+            });
+        
     },
     // Verify user
     findOneAndVerify: function(req, res) {

@@ -11,11 +11,29 @@ import { PromiseProvider } from "mongoose";
 
 function Home(props) {
   const [items, setItems] = useState([]);
+  const [user, setUser] = useState([])
 
   //   function handleInputChange(event) {
   //     const { value } = event.target;
   //     setSearch(value);
   //   }
+  useEffect(() => {
+    getUser();
+  }, []);
+
+  // Get user data and filter based on logged in ID
+  function getUser() {    
+    API.getUser()
+    .then((res) => {
+      var newUserArray = res.data.filter(user => {
+        return user._id == props.user._id;
+      })
+      setUser(newUserArray);
+      console.log(newUserArray);
+      
+    })
+    .catch((err) => console.log(err));
+  }
 
   function showAllPosts() {
     API.getPosts()
