@@ -60,7 +60,7 @@ function Home(props) {
   return (
     <React.Fragment>
       <Logo />
-      <Sidebar />
+      <Sidebar id={props.id} items={items} />
       <Header />
       <Container>
         <Post getCityPosts={getCityPosts} makeAPost={makeAPost} id={props.id} />
