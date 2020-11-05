@@ -8,11 +8,11 @@ import "./App.css";
 
 class App extends Component {
 
-  state = {id: undefined};
+  state = {user: undefined};
 
 
-  setUser = (id) => {
-    this.setState({id})
+  setUser = (user) => {
+    this.setState({user})
   }
 
   render() {

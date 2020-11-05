@@ -17,7 +17,7 @@ module.exports = {
     },
     // Get user info based on whose logged in
     findOne: function(req, res) {
-        db.Users.find({ _id: this.userId })
+        db.Users.find({ _id: req.body.id })
         .then(dbUsers => {
            res.json(dbUsers);        
         })    
@@ -35,10 +35,7 @@ module.exports = {
                 if (err) throw err;
                 else if (isMatch && isMatch === true) {
                     
-                    res.json(user._id);
-                   // req.session.key = value 
-                    // req.session.id = user._id;
-                    // console.log(req.session.id);
+                    res.json(user);                  
                 } else {
                     return res.status(401).send();                        
                 }                    

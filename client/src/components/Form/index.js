@@ -79,18 +79,19 @@ export default function TemporaryDrawer(props) {
     });
    
   };
-
+  // Create User
   const handleFormSubmit = (event) => {
     event.preventDefault();
     API.createUser(formInput)
-      .then(user => {           
-          history.push("/feed");      
+      .then((id) => {  
+        props.setUser(id.data);      
+        history.push("/feed");      
       })
       .catch((err) => {
         if(err) console.log("Unauthorized!")
       });
   };
-
+  // Login User
   const handleLoginSubmit = (event) => {
     event.preventDefault();
     console.log(loginInput)
