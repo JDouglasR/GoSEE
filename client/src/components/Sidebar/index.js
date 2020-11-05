@@ -42,7 +42,9 @@ export default function TemporaryDrawer(props) {
     >
       <div className="sidebar-header">
         <Avatar className="sidebar-avatar" src="/broken-image.jpg" />
-        <p className="sidebar-name">firstName lastName</p>
+        <p className="sidebar-name">
+          {props.firstName} {props.lastName}
+        </p>
       </div>
 
       <p className="sidebar-email">Email</p>
