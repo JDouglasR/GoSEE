@@ -58,11 +58,7 @@ function Feed(props) {
                   >
                     <span className="hashtag">#{i.posts.hashtag}</span>
                     <span className="time">
-                      {new Intl.DateTimeFormat("en-US", {
-                        month: "short",
-                        year: "numeric",
-                        day: "2-digit",
-                      }).format(date)}
+                      {date.getDay() + "/" + date.getMonth() + "/" + date.getFullYear()}
                     </span>
                   </div>
                 </div>

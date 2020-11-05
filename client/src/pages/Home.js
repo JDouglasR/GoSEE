@@ -45,7 +45,7 @@ function Home(props) {
     API.savePost(post)
       .then((res) => {
         if (res) {
-          setItems(items.concat(res.data));
+          setItems(res.data);
         } else {
           showAllPosts();
         }
