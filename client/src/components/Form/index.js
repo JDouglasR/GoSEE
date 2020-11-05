@@ -24,7 +24,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function TemporaryDrawer() {
+export default function TemporaryDrawer(props) {
   const classes = useStyles();
   const [state, setState] = React.useState({
     right: false,
@@ -95,8 +95,8 @@ export default function TemporaryDrawer() {
     event.preventDefault();
     console.log(loginInput)
     API.loginUser(loginInput)
-      .then(() => {  
-                 
+      .then((id) => {  
+          props.setUser(id.data);
           history.push("/feed");      
       })
       .catch((err) => {
