@@ -20,9 +20,9 @@ class App extends Component {
       <BrowserRouter basename={"/"}>
         <div>
           <Switch>
-            <Route path="/" component={Landing} exact />
-            <Route path="/feed" component={Home} exact id={this.state.id}/>
-            <Route path="/profile" component={Profile} id={this.state.id}/>
+            <Route path="/" render={() => <Landing setUser={this.setUser} /> }exact/>
+            <Route path="/feed" render={() => <Home id={this.state.id} /> }exact/>
+            <Route path="/profile" render={() => <Profile id={this.state.id} /> }exact/>            
             <Route component={Error} />
           </Switch>
         </div>

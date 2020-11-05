@@ -1,13 +1,15 @@
 import React from "react";
 import Logo from "../components/Logo";
 import Form from "../components/Form";
+import { PromiseProvider } from "mongoose";
 
 
-function Landing() {
+function Landing(props) {
   return (
     <div className="LandingPage">
       <Logo />
-      <Form />
+      <Form 
+      setUser= {props.setUser}/>
     </div>
   );
 }
