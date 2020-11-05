@@ -32,7 +32,7 @@ function Feed(props) {
           </p>
         }
         // below props only if you need pull down functionality
-        // refreshFunction={refresh}
+        // refreshFunction={props.showAllPosts}
         // pullDownToRefresh
         // pullDownToRefreshThreshold={50}
         // pullDownToRefreshContent={
@@ -57,13 +57,7 @@ function Feed(props) {
                     style={{ display: "flex", justifyContent: "space-between" }}
                   >
                     <span className="hashtag">#{i.posts.hashtag}</span>
-                    <span className="time">
-                      {new Intl.DateTimeFormat("en-US", {
-                        month: "short",
-                        year: "numeric",
-                        day: "2-digit",
-                      }).format(date)}
-                    </span>
+                    <span className="time">{date}</span>
                   </div>
                 </div>
               );

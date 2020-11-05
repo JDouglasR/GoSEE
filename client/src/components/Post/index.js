@@ -42,7 +42,6 @@ function Post(props) {
             onClick={() => {
               console.log(props.id);
               props.makeAPost({
-                
                 id: props.id,
                 post: postInput.current.value,
                 hashtag: hashtagInput.current.value,
