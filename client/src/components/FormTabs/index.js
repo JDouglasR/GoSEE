@@ -78,7 +78,7 @@ function FormTabs(props) {
       [evt.target.name]: value,
     });
   };
-
+  // Create User
   const handleFormSubmit = (event) => {
     event.preventDefault();
     API.createUser(formInput)
@@ -90,7 +90,7 @@ function FormTabs(props) {
         if (err) console.log("Unauthorized!");
       });
   };
-
+  // Login User
   const handleLoginSubmit = (event) => {
     event.preventDefault();
     console.log(loginInput);
