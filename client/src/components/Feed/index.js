@@ -32,7 +32,7 @@ function Feed(props) {
           </p>
         }
         // below props only if you need pull down functionality
-        // refreshFunction={refresh}
+        // refreshFunction={props.showAllPosts}
         // pullDownToRefresh
         // pullDownToRefreshThreshold={50}
         // pullDownToRefreshContent={
@@ -44,7 +44,6 @@ function Feed(props) {
       >
         {props.items
           .map((i, index) => {
-            console.log(i);
             if (i.posts) {
               const date = new Date(i.posts.day);
               return (
@@ -58,7 +57,11 @@ function Feed(props) {
                   >
                     <span className="hashtag">#{i.posts.hashtag}</span>
                     <span className="time">
-                      {date.getDay() + "/" + date.getMonth() + "/" + date.getFullYear()}
+                      {date.getDay() +
+                        "/" +
+                        date.getMonth() +
+                        "/" +
+                        date.getFullYear()}
                     </span>
                   </div>
                 </div>
