@@ -56,26 +56,16 @@ module.exports = {
   },
 
   // Save user posts
-  savePost: function ({ body }, res) {
-    console.log(body);
-    db.Posts.create(body)
+  savePost: function (req, res) {
+    console.log(req.body);
+    db.Posts.create(req.body)
       .then(({ _id }) =>
         db.Users.findOneAndUpdate(
-          { _id: body.id },
+          { _id: req.body.id },
           { $push: { posts: _id } },
           { new: true }
         )
       )
-      .then((dbUsers) => {
-        res.json(dbUsers);
-      })
-      .catch((err) => {
-        res.json(err);
-      });
-    // db.Posts.create(body)
-    // .then(dbPost => {
-    //   res.json(dbPost)
-    // })
-    // .catch(err => res.json(err));
+      .then(() => module.exports.findAll(req, res));
   },
 };

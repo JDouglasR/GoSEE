@@ -44,7 +44,6 @@ function Feed(props) {
       >
         {props.items
           .map((i, index) => {
-            console.log(i);
             if (i.posts) {
               const date = new Date(i.posts.day);
               return (
@@ -57,7 +56,13 @@ function Feed(props) {
                     style={{ display: "flex", justifyContent: "space-between" }}
                   >
                     <span className="hashtag">#{i.posts.hashtag}</span>
-                    <span className="time">{date}</span>
+                    <span className="time">
+                      {date.getDay() +
+                        "/" +
+                        date.getMonth() +
+                        "/" +
+                        date.getFullYear()}
+                    </span>
                   </div>
                 </div>
               );

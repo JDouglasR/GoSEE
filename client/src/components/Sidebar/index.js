@@ -11,7 +11,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function TemporaryDrawer() {
+export default function TemporaryDrawer(props) {
   const classes = useStyles();
   const [state, setState] = React.useState({
     right: false,
@@ -40,17 +40,15 @@ export default function TemporaryDrawer() {
         [classes.fullList]: anchor === "top" || anchor === "bottom",
       })}
     >
-      
-      <div className="sidebar-header"> 
+      <div className="sidebar-header">
         <Avatar className="sidebar-avatar" src="/broken-image.jpg" />
-        <p className="sidebar-name">Name Name</p>
+        <p className="sidebar-name">firstName lastName</p>
       </div>
-      
+
       <p className="sidebar-email">Email</p>
       <p className="sidebar-logout">Log out</p>
 
       <p className="sidebar-posts">Users Posts</p>
-       
     </div>
   );
 

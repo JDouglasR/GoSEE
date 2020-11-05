@@ -24,12 +24,12 @@ const useStyles = makeStyles({
   },
 });
 
-export default function TemporaryDrawer() {
+function FormTabs(props) {
   const classes = useStyles();
-  const [state, setState] = React.useState({
+  const [drawerState, setDrawerState] = useState({
     right: false,
   });
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
 
   // Set initial state
   const [formInput, setFormInput] = useState({
@@ -42,8 +42,8 @@ export default function TemporaryDrawer() {
 
   const [loginInput, setLoginInput] = useState({
     email: "",
-    password: ""
-  })
+    password: "",
+  });
 
   let history = useHistory();
 
@@ -54,7 +54,7 @@ export default function TemporaryDrawer() {
     ) {
       return;
     }
-    setState({ ...state, [anchor]: open });
+    setDrawerState({ ...drawerState, [anchor]: open });
   };
 
   const handleChange = (event, newValue) => {
@@ -77,30 +77,29 @@ export default function TemporaryDrawer() {
       ...loginInput,
       [evt.target.name]: value,
     });
-   
   };
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
     API.createUser(formInput)
-      .then(user => {           
-          history.push("/feed");      
+      .then((user) => {
+        history.push("/feed");
       })
       .catch((err) => {
-        if(err) console.log("Unauthorized!")
+        if (err) console.log("Unauthorized!");
       });
   };
 
   const handleLoginSubmit = (event) => {
     event.preventDefault();
-    console.log(loginInput)
+    console.log(loginInput);
     API.loginUser(loginInput)
-      .then(() => {  
-                 
-          history.push("/feed");      
+      .then((id) => {
+        props.setUser(id.data);
+        history.push("/feed");
       })
       .catch((err) => {
-        if(err) console.log("Unauthorized!")
+        if (err) console.log("Unauthorized!");
       });
   };
 
@@ -212,7 +211,7 @@ export default function TemporaryDrawer() {
               aria-describedby="my-helper-text"
               type="email"
               required
-              name= "email"
+              name="email"
               onChange={handleLoginChange}
             />
             <FormHelperText id="my-helper-text"></FormHelperText>
@@ -252,7 +251,7 @@ export default function TemporaryDrawer() {
             <Button onClick={toggleDrawer(anchor, true)}>Get Started </Button>
             <Drawer
               anchor={anchor}
-              open={state[anchor]}
+              open={drawerState[anchor]}
               onClose={toggleDrawer(anchor, false)}
             >
               {list(anchor)}
@@ -263,3 +262,5 @@ export default function TemporaryDrawer() {
     </div>
   );
 }
+
+export default FormTabs;
