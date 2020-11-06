@@ -7,7 +7,7 @@ import Feed from "../components/Feed";
 import API from "../utils/API";
 
 import { Container } from "@material-ui/core";
-import { PromiseProvider } from "mongoose";
+
 
 function Home(props) {
   const [items, setItems] = useState([]);
@@ -31,6 +31,10 @@ function Home(props) {
       console.log(newUserArray);
       var newMap = newUserArray.map(user => {
         return {
+          firstName: user.firstName,
+          lasrName: user.lasrName,
+          email: user.email,
+          city: user.city,
           day: user.posts.day,
           post: user.posts.post,
           hashtag: user.posts.hashtag
@@ -87,7 +91,7 @@ function Home(props) {
   return ( 
     <React.Fragment>      
       <Logo />
-      <Sidebar user={props.user} items={items} />
+      <Sidebar user={props.user} items={items} userPosts={user}/>
       <Header />
       <Container>
         <Post getCityPosts={getCityPosts} makeAPost={makeAPost} user={props.user} />
