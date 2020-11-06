@@ -40,9 +40,9 @@ function Post(props) {
             className="postButton"
             variant="contained"
             onClick={() => {
-              console.log(props.id);
-              props.makeAPost({
-                id: props.id,
+              console.log(props.user._id);
+              props.makeAPost({                
+                id: props.user._id,
                 post: postInput.current.value,
                 hashtag: hashtagInput.current.value,
               });
