@@ -22,15 +22,14 @@ function Post(props) {
         </Grid>
         <Grid item md={6} sm={12}>
           <TextField 
-            id=""
+            id="post"
             className="mainField"
             label="Share plans for any future trips"
             variant="outlined"
             inputRef={postInput}
-            border="none"
           />
           <TextField
-            id=""
+            id="hashtag"
             className="locationField"
             label="#Location"
             variant="outlined"

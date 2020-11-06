@@ -5,18 +5,12 @@ import Header from "../components/Header";
 import Post from "../components/Post";
 import Feed from "../components/Feed";
 import API from "../utils/API";
-
 import { Container } from "@material-ui/core";
-
 
 function Home(props) {
   const [items, setItems] = useState([]);
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState([]);  
 
-  //   function handleInputChange(event) {
-  //     const { value } = event.target;
-  //     setSearch(value);
-  //   }
   useEffect(() => {
     getUser();
   }, []);
@@ -28,7 +22,6 @@ function Home(props) {
       var newUserArray = res.data.filter(user => {
         return user._id == props.user._id;
       })
-      console.log(newUserArray);
       var newMap = newUserArray.map(user => {
         return {
           firstName: user.firstName,
@@ -40,11 +33,8 @@ function Home(props) {
           hashtag: user.posts.hashtag
         }
       }) 
-      console.log(newMap)
-      setUser(newMap);
-      
-    })
-   
+      setUser(newMap);      
+    })   
     .catch((err) => console.log(err));
   }
 
@@ -53,15 +43,7 @@ function Home(props) {
       .then((res) => {
         setItems(items.concat(res.data));
       })
-      .catch((err) => console.error(err));
-
-    // if (items.length >= 30) {
-    //   setHasMore(false);
-    //   return;
-    // }
-    // setTimeout(() => {
-    //   setItems(items.concat(Array.from({ length: 20 })));
-    // }, 1500);
+      .catch((err) => console.error(err));   
   }
 
   function getCityPosts(city) {
@@ -77,6 +59,7 @@ function Home(props) {
       .then((res) => {
         if (res) {
           setItems(res.data);
+          getUser();
         } else {
           showAllPosts();
         }
@@ -91,10 +74,15 @@ function Home(props) {
   return ( 
     <React.Fragment>      
       <Logo />
-      <Sidebar user={props.user} items={items} userPosts={user}/>
+      <Sidebar user={props.user} />
       <Header />
       <Container>
-        <Post getCityPosts={getCityPosts} makeAPost={makeAPost} user={props.user} />
+        <Post
+          getCityPosts={getCityPosts}
+          makeAPost={makeAPost}
+          user={props.user}
+        />
+
         <Feed showAllPosts={showAllPosts} items={items} />
       </Container>
     </React.Fragment>
