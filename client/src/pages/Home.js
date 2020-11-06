@@ -7,15 +7,46 @@ import Feed from "../components/Feed";
 import API from "../utils/API";
 
 import { Container } from "@material-ui/core";
-import { PromiseProvider } from "mongoose";
+
 
 function Home(props) {
   const [items, setItems] = useState([]);
+  const [user, setUser] = useState([]);
 
   //   function handleInputChange(event) {
   //     const { value } = event.target;
   //     setSearch(value);
   //   }
+  useEffect(() => {
+    getUser();
+  }, []);
+
+  // Get user data and filter based on logged in ID
+  function getUser() {    
+    API.getUser()
+    .then((res) => {
+      var newUserArray = res.data.filter(user => {
+        return user._id == props.user._id;
+      })
+      console.log(newUserArray);
+      var newMap = newUserArray.map(user => {
+        return {
+          firstName: user.firstName,
+          lasrName: user.lasrName,
+          email: user.email,
+          city: user.city,
+          day: user.posts.day,
+          post: user.posts.post,
+          hashtag: user.posts.hashtag
+        }
+      }) 
+      console.log(newMap)
+      setUser(newMap);
+      
+    })
+   
+    .catch((err) => console.log(err));
+  }
 
   function showAllPosts() {
     API.getPosts()
@@ -57,8 +88,8 @@ function Home(props) {
     showAllPosts();
   }, []);
 
-  return (
-    <React.Fragment>
+  return ( 
+    <React.Fragment>      
       <Logo />
       <Sidebar user={props.user} />
       <Header />
@@ -68,6 +99,7 @@ function Home(props) {
           makeAPost={makeAPost}
           user={props.user}
         />
+
         <Feed showAllPosts={showAllPosts} items={items} />
       </Container>
     </React.Fragment>

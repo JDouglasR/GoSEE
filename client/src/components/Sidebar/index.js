@@ -26,7 +26,10 @@ export default function TemporaryDrawer(props) {
     }
 
     setState({ ...state, [anchor]: open });
+    console.log(props.userPosts);
+    console.log(props.user);
   };
+
 
   // const [value, setValue] = React.useState(0);
 
@@ -40,17 +43,44 @@ export default function TemporaryDrawer(props) {
         [classes.fullList]: anchor === "top" || anchor === "bottom",
       })}
     >
+
+
+
       <div className="sidebar-header">
         <Avatar className="sidebar-avatar" src="/broken-image.jpg" />
-        <p className="sidebar-name">
-          {props.user.firstName} {props.user.lastName}
-        </p>
+
+        <p className="sidebar-name"> {props.user.firstName} {props.user.lastName}</p>
+  
       </div>
 
-      <p className="sidebar-email">{props.user.email}</p>
-      <p className="sidebar-logout">Log out</p>
+      <p className="sidebar-email">Email</p>
+      <a className="sidebar-logout">Log out</a>
 
-      <p className="sidebar-posts">{props.user.posts}</p>
+      <p className="sidebar-posts">
+
+      <div>
+        {props.userPosts
+          .map((i) => {
+              return (
+                <div>
+                  <p className="postName">
+                 
+                  </p>
+
+                  <div>{i.day}</div>
+                  <div>{i.post}</div>
+                  <div>{i.hashtag}</div>
+ 
+                </div>
+              );
+         
+            })
+          }
+          
+</div>
+
+
+      </p>
     </div>
   );
 

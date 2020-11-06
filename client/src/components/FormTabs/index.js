@@ -82,8 +82,8 @@ function FormTabs(props) {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     API.createUser(formInput)
-      .then((id) => {
-        props.setUser(id.data);
+      .then((user) => {
+        props.setUser(user.data);
         history.push("/feed");
       })
       .catch((err) => {
@@ -94,8 +94,8 @@ function FormTabs(props) {
   const handleLoginSubmit = (event) => {
     event.preventDefault();
     API.loginUser(loginInput)
-      .then((id) => {
-        props.setUser(id.data);
+      .then((user) => {
+        props.setUser(user.data);
         history.push("/feed");
       })
       .catch((err) => {
@@ -199,6 +199,7 @@ function FormTabs(props) {
             Submit
           </Button>
         </FormControl>
+
       </TabPanel>
 
       <TabPanel value={value} index={1}>
@@ -246,6 +247,7 @@ function FormTabs(props) {
       <div className="bottom-right">
         <h1>CTA Title: Want to Travel? </h1>
         <p>Paragraph explaining how easy it is to plan trips with our app.</p>
+
         {["right"].map((anchor) => (
           <React.Fragment key={anchor}>
             <Button onClick={toggleDrawer(anchor, true)}>Get Started </Button>

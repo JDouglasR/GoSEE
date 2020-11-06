@@ -33,6 +33,7 @@ class App extends Component {
               render={() => <Profile user={this.state.user} />}
               exact
             />
+
             <Route component={Error} />
           </Switch>
         </div>
