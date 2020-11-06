@@ -82,8 +82,8 @@ function FormTabs(props) {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     API.createUser(formInput)
-      .then((id, user) => {
-        props.setUser(id.data);
+      .then((user) => {
+        props.setUser(user.data);
         history.push("/feed");
       })
       .catch((err) => {
@@ -95,8 +95,8 @@ function FormTabs(props) {
     event.preventDefault();
     console.log(loginInput);
     API.loginUser(loginInput)
-      .then((id) => {
-        props.setUser(id.data);
+      .then((user) => {
+        props.setUser(user.data);
         history.push("/feed");
       })
       .catch((err) => {

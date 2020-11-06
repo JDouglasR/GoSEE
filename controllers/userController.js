@@ -8,8 +8,7 @@ module.exports = {
         db.Users
         .create(req.body)
         .then(dbUsers => {
-        res.json(dbUsers); 
-        module.exports.userId = dbUsers._id;               
+        res.json(dbUsers);                       
         })
         .catch(err => {
             res.status(401).json(err)
