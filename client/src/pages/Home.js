@@ -91,10 +91,15 @@ function Home(props) {
   return ( 
     <React.Fragment>      
       <Logo />
-      <Sidebar user={props.user} items={items} userPosts={user}/>
+      <Sidebar user={props.user} />
       <Header />
       <Container>
-        <Post getCityPosts={getCityPosts} makeAPost={makeAPost} user={props.user} />
+        <Post
+          getCityPosts={getCityPosts}
+          makeAPost={makeAPost}
+          user={props.user}
+        />
+
         <Feed showAllPosts={showAllPosts} items={items} />
       </Container>
     </React.Fragment>
