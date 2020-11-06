@@ -9,7 +9,7 @@ module.exports = {
         .create(req.body)
         .then(dbUsers => {
         res.json(dbUsers); 
-        module.exports.userId = dbUsers._id;               
+        userId = dbUsers._id;               
         })
         .catch(err => {
             res.status(401).json(err)

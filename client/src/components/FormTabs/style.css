@@ -10,11 +10,18 @@ body {
     text-align: right; 
     text-shadow: 2px 2px black;
 }
+.bottom-right p{ 
+    font-size: 18px;
+    max-width: 450px;
+}
+
 .bottom-right h1 {
     font-family: 'Roboto', sans-serif; 
+    font-size: 38px;
     color: white; 
     text-align: right; 
     margin-bottom: -15px; 
+    max-width: 450px;
 }
 .bottom-right button { 
     height: 40px; 
@@ -73,10 +80,21 @@ div .submitButton:hover {
         right: 0px; 
         left: 0px; 
         text-align: center; 
+        max-width: none;
     }
     .bottom-right h1 {
-        text-align: center; 
+        text-align: center;
+        max-width: none;
+        font-size: 30px;
+        margin: 0px 20px;
+        margin-bottom: -15px; 
     }
+    .bottom-right p{ 
+        margin: 20px 40px;
+        max-width: none;
+
+    }
+
     .bottom-right button { 
         width: 100%;  
     }

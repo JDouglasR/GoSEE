@@ -18,14 +18,6 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-// We need to use sessions to keep track of our user's login status
-app.use(
-  session({ secret: "T{M.W7bZVxM'M#+z", 
-  resave: true, 
-  saveUninitialized: true,
-  store: new MongoStore({ mongooseConnection: db }) 
-})
-);
 
 app.use(passport.initialize());
 app.use(passport.session());

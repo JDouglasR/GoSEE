@@ -82,8 +82,8 @@ function FormTabs(props) {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     API.createUser(formInput)
-      .then((id, user) => {
-        props.setUser(id.data);
+      .then((user) => {
+        props.setUser(user.data);
         history.push("/feed");
       })
       .catch((err) => {
@@ -95,8 +95,8 @@ function FormTabs(props) {
     event.preventDefault();
     console.log(loginInput);
     API.loginUser(loginInput)
-      .then((id) => {
-        props.setUser(id.data);
+      .then((user) => {
+        props.setUser(user.data);
         history.push("/feed");
       })
       .catch((err) => {
@@ -175,7 +175,7 @@ function FormTabs(props) {
               required
             />
             <FormHelperText id="my-helper-text">
-              We'll never share your email.
+            You must enter a password.
             </FormHelperText>
           </FormControl>
           <FormControl>
@@ -187,7 +187,7 @@ function FormTabs(props) {
               onChange={handleInputChange}
             />
             <FormHelperText id="my-helper-text">
-              We'll never share your email.
+              Please enter your city.
             </FormHelperText>
           </FormControl>
           <FormControl>
@@ -245,8 +245,9 @@ function FormTabs(props) {
   return (
     <div>
       <span className="bottom-right">
-        <h1>CTA Title: Want to Travel? </h1>
-        <p>Paragraph explaining how easy it is to plan trips with our app.</p>
+        <h1>Looking to Travel? <span style={{fontFamily: "Roboto, sans-serif", fontWeight: "900",  color: "white"}} >
+         <span style={{color: "#f7ee24"}}> GO</span>SEE</span> </h1>
+        <p>GO SEE is your favorite social media app before, during, and after traveling.</p>
         {["right"].map((anchor) => (
           <React.Fragment key={anchor}>
             <Button onClick={toggleDrawer(anchor, true)}>Get Started </Button>
