@@ -53,7 +53,7 @@ export default function TemporaryDrawer(props) {
       </div>
 
       <p className="sidebar-email">Email</p>
-      <a className="sidebar-logout">Log out</a>
+      <a className="sidebar-logout" href="/">Log out</a>
 
       <p className="sidebar-posts">
 
