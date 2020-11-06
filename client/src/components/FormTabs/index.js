@@ -21,6 +21,8 @@ import {
 const useStyles = makeStyles({
   list: {
     width: 400,
+    background: "white",
+    height: "100%",
   },
 });
 
@@ -111,8 +113,6 @@ function FormTabs(props) {
     >
       <Tabs
         value={value}
-        indicatorColor="primary"
-        textColor="primary"
         onChange={handleChange}
         aria-label="disabled tabs example"
         centered
@@ -121,7 +121,7 @@ function FormTabs(props) {
         <Tab label="Login" />
       </Tabs>
 
-      <TabPanel value={value} index={0} classes="lp-form">
+      <TabPanel className="lp-form" value={value} index={0} >
         <FormControl>
           <InputLabel htmlFor="firstName">First Name</InputLabel>
           <Input
@@ -173,7 +173,7 @@ function FormTabs(props) {
             required
           />
           <FormHelperText id="my-helper-text">
-            We'll never share your email.
+          You must enter a password.
           </FormHelperText>
         </FormControl>
         <FormControl>
@@ -185,7 +185,7 @@ function FormTabs(props) {
             onChange={handleInputChange}
           />
           <FormHelperText id="my-helper-text">
-            We'll never share your email.
+          Please enter your city.
           </FormHelperText>
         </FormControl>
         <FormControl>
@@ -244,24 +244,24 @@ function FormTabs(props) {
 
   return (
     <div>
-      <div className="bottom-right">
-        <h1>CTA Title: Want to Travel? </h1>
-        <p>Paragraph explaining how easy it is to plan trips with our app.</p>
-
-        {["right"].map((anchor) => (
-          <React.Fragment key={anchor}>
-            <Button onClick={toggleDrawer(anchor, true)}>Get Started </Button>
-            <Drawer
-              anchor={anchor}
-              open={drawerState[anchor]}
-              onClose={toggleDrawer(anchor, false)}
-            >
-              {list(anchor)}
-            </Drawer>
-          </React.Fragment>
-        ))}
-      </div>
-    </div>
+    <span className="bottom-right">
+      <h1>Looking to Travel? <span style={{fontFamily: "Roboto, sans-serif", fontWeight: "900",  color: "white"}} >
+       <span style={{color: "#f7ee24"}}> GO</span>SEE</span> </h1>
+      <p>GO SEE is your favorite social media app before, during, and after traveling.</p>
+      {["right"].map((anchor) => (
+        <React.Fragment key={anchor}>
+          <Button onClick={toggleDrawer(anchor, true)}>Get Started </Button>
+          <Drawer
+            anchor={anchor}
+            open={drawerState[anchor]}
+            onClose={toggleDrawer(anchor, false)}
+          >
+            {list(anchor)}
+          </Drawer>
+        </React.Fragment>
+      ))}
+    </span>
+  </div>
   );
 }
 
