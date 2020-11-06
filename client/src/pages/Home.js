@@ -74,7 +74,7 @@ function Home(props) {
   return ( 
     <React.Fragment>      
       <Logo />
-      <Sidebar user={props.user} />
+      <Sidebar user={props.user} items={items} userPosts={user}/>
       <Header />
       <Container>
         <Post

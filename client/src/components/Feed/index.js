@@ -2,11 +2,6 @@ import React from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import "./style.css";
 
-const style = {
-  borderBottom: "1px solid green",
-  padding: 8,
-  marginBottom: 5,
-};
 
 function Feed(props) {
   return (
@@ -46,8 +41,22 @@ function Feed(props) {
           .map((i, index) => {
             if (i.posts) {
               const date = new Date(i.posts.day);
+              const month = new Array();
+              month[0] = "January";
+              month[1] = "February";
+              month[2] = "March";
+              month[3] = "April";
+              month[4] = "May";
+              month[5] = "June";
+              month[6] = "July";
+              month[7] = "August";
+              month[8] = "September";
+              month[9] = "October";
+              month[10] = "November";
+              month[11] = "December";
+              
               return (
-                <div style={style} key={index}>
+                <div className="feed-posts" key={index}>
                   <p className="postName">
                     {i.firstName} {i.lastName}
                   </p>
@@ -57,10 +66,10 @@ function Feed(props) {
                   >
                     <span className="hashtag">#{i.posts.hashtag}</span>
                     <span className="time">
-                      {date.getDay() +
-                        "/" +
-                        date.getMonth() +
-                        "/" +
+                     { month[date.getMonth()] + 
+                        " " +
+                        date.getDay() +
+                        ", " +
                         date.getFullYear()}
                     </span>
                   </div>

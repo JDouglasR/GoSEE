@@ -4,14 +4,14 @@ import React from "react";
 function Logo() {
   return (
     <React.Fragment>
-      <div
+      <span
         style={{
           fontFamily: "Roboto, sans-serif",
           fontWeight: "900",
           fontSize: "40px",
           color: "white",
           padding: "20px",
-          marginTop: "40px",
+          marginTop: "0px",
         }}
       >
         <span style={{ color: "#f7ee24" }}>
@@ -20,7 +20,7 @@ function Logo() {
           GO
         </span>
         SEE
-      </div>
+      </span>
     </React.Fragment>
   );
 }

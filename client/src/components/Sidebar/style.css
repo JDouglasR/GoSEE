@@ -12,6 +12,12 @@
     color: #f7ee24;
 }
 
+div .MuiDrawer-paperAnchorRight {
+    width: 400px;
+    background: #f0f2f4;
+    height: 100%;
+}
+
 .sidebar-header {
     background-color: #1f6421;
     width: 100%;
@@ -37,27 +43,87 @@ div .sidebar-avatar {
     font-weight: 400;
     font-size: 16px;
 }
+.sidebar-city {
+    margin: 35px 30px 15px;
+    font-weight: 400;
+    font-size: 16px;
+}
 .sidebar-logout {
-    margin: 25px 30px 15px;
+    margin: 0px 30px 15px;
     font-weight: 400;
     font-size: 14px;
+    color: #1f6421;
 }
 .sidebar-logout:hover {
-    color: #1f6421;
+    color: dimgrey;
     cursor: pointer;
 }
 
+div .post-title {
+    margin: 30px 15px 5px 15px;
+}
+
 .sidebar-posts {
-    margin: 25px 30px 15px;
+    margin: 5px 10px 10px 10px;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+.sidebar-posts .posts {
+    margin-top: -10px;
+}
+.sidebar-posts .hashtag {
+    color: #1f6421;
+    margin-top: -10px;
+}
+.sidebar-posts .time {
+    float: right;
+    margin-top: -17px;
+    font-size: 14px;
+
 }
 
 @media only screen and (max-width: 600px) {
     .MuiDrawer-paper { 
         width: 250px;
     }
+    .sidebar-header {
+        height: 100px;
+    }
+    div .sidebar-avatar {
+        width: 40px; 
+        height: 40px; 
+        border: solid #1f6421 3px; 
+        float: left;
+        margin: 75px 15px 10px 15px; 
+    }
+    .sidebar-name {
+        padding-top: 77px;
+        font-size: 16px;
+    }
+    .sidebar-email {
+        margin-top: 3px;
+        font-size: 14px;
+    }
+    .sidebar-city {
+        margin: 15px 20px 15px;
+        font-size: 14px;
+    }
+    .sidebar-logout {
+        margin: 10px 20px 15px;
+    }
     .top-right {
         float: none; 
         margin-top: 0px; 
         margin-left: 30px; 
+    }
+    div .makeStyles-list-8 {
+        width: 250px;
+    }
+    .sidebar-header {
+        width: 250px;
+    }
+    .sidebar-posts {
+        width: 210px;
     }
 }

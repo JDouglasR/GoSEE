@@ -21,7 +21,7 @@ function Post(props) {
           <Avatar className="avatar" src="/broken-image.jpg" />
         </Grid>
         <Grid item md={6} sm={12}>
-          <TextField
+          <TextField 
             id="post"
             className="mainField"
             label="Share plans for any future trips"
@@ -40,7 +40,8 @@ function Post(props) {
             className="postButton"
             variant="contained"
             onClick={() => {
-              props.makeAPost({
+              console.log(props.user._id);
+              props.makeAPost({                
                 id: props.user._id,
                 post: postInput.current.value,
                 hashtag: hashtagInput.current.value,

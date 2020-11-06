@@ -1,6 +1,9 @@
 div .container {
     margin-top: 200px;
 }
+body {
+    background: #f0f2f4;
+}
 
 div .avatar {
     width: 70px; 
@@ -24,6 +27,10 @@ div .searchField {
     height: 50px; 
     margin-top: 20px;
 }
+div .MuiOutlinedInput-notchedOutline {
+    border-color:white;
+}
+
 
 div .MuiFormLabel-root.Mui-focused { 
     color: dimgray; 
@@ -51,7 +58,7 @@ div .MuiOutlinedInput-input {
 }
 
 div .postButton {
-    margin: 20px 0px 10px 10px; 
+    margin: 18px 0px 10px 10px; 
     width: 27%; 
     height: 40px; 
     background: #f7ee24; 
@@ -64,7 +71,7 @@ div .postButton:hover {
 
 div .searchButton {
     color: white;
-    margin: 20px 0px 10px 10px; 
+    margin: 19px 0px 10px 10px; 
     height: 40px; 
     background: #1f6421; 
     font-size: 18px; 

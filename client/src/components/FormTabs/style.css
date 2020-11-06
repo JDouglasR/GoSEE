@@ -33,20 +33,15 @@ body {
     background: #f7ee24; 
 }
 
-div .PrivateTabIndicator-colorPrimary-12 {
+div .MuiTabs-indicator {
     background-color: #1f6421;
 }
-div .PrivateTabIndicator-colorPrimary-9 {
-    background-color: #1f6421;
-}
-div .PrivateTabIndicator-colorPrimary-3 {
-    background-color: #1f6421;
-}
+
 div .MuiTab-textColorPrimary.Mui-selected {
     color: #1f6421;
 }
 div .MuiFormLabel-root .Mui-focused {
-    background-color: red;
+    background-color: #1f6421;
 }
 div .MuiInput-underline:after {
     border-bottom: 2px solid #f7ee24;
