@@ -21,8 +21,8 @@ class App extends Component {
         <div>
           <Switch>
             <Route path="/" render={() => <Landing setUser={this.setUser} /> }exact/>
-            <Route path="/feed" render={() => <Home id={this.state.id} /> }exact/>
-            <Route path="/profile" render={() => <Profile id={this.state.id} /> }exact/>            
+            <Route path="/feed" render={() => <Home user={this.state.user} /> }exact/>
+            <Route path="/profile" render={() => <Profile user={this.state.user} /> }exact/>            
             <Route component={Error} />
           </Switch>
         </div>
