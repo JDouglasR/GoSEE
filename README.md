@@ -18,7 +18,7 @@ This group project was .... Deployed Heroku can be found at https://+++++++.hero
 
 ### **Installation**
 
-Installation: You will need to have Node installed and then run `npm install` to be able to run. To run the program locally, you can either install [Nodemon](https://nodemon.io/) or just run `node server.js`. After this step, open your browser and navigate to `localhost:8080`. This should display the app.
+Installation: You will need to have Node installed and then run `npm install` to install dependencies. To run the program locally, you can either install [Nodemon](https://nodemon.io/) or just run `node server.js`. After this step, open your browser and navigate to `localhost:3001`. This should display the app.
 
 ### **Image**
 
