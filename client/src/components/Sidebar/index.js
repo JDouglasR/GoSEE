@@ -52,34 +52,44 @@ export default function TemporaryDrawer(props) {
         
       </div>
 
-      <p className="sidebar-email">Email</p>
-      <a className="sidebar-logout">Log out</a>
+      <p className="sidebar-email">{props.user.email}</p>
+      <p className="sidebar-city">{props.user.city}</p>
+      <p><a href="/" className="sidebar-logout">Log out</a></p>
 
-      <p className="sidebar-posts">
+      <h4 className="post-title">Your Recent Posts</h4>
 
-      <div>
         {props.userPosts
           .map((i) => {
+              const date = new Date(i.day);
+              const month = new Array();
+              month[0] = "January";
+              month[1] = "February";
+              month[2] = "March";
+              month[3] = "April";
+              month[4] = "May";
+              month[5] = "June";
+              month[6] = "July";
+              month[7] = "August";
+              month[8] = "September";
+              month[9] = "October";
+              month[10] = "November";
+              month[11] = "December";
+              
               return (
-                <div>
-                  <p className="postName">
-                 
-                  </p>
-
-                  <div>{i.day}</div>
-                  <div>{i.post}</div>
-                  <div>{i.hashtag}</div>
- 
+                <div className="sidebar-posts">
+                  <p className="post">{i.post}</p>
+                  <p className="hashtag">#{i.hashtag}</p>
+                    <span className="time">
+                     { month[date.getMonth()] + 
+                        " " +
+                        date.getDay() +
+                        ", " +
+                        date.getFullYear()}
+                    </span>
                 </div>
               );
-         
-            })
-          }
-          
-</div>
-
-
-      </p>
+          })
+        .reverse()}
     </div>
   );
 

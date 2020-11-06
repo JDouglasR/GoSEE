@@ -21,12 +21,13 @@ function Post(props) {
           <Avatar className="avatar" src="/broken-image.jpg" />
         </Grid>
         <Grid item md={6} sm={12}>
-          <TextField
+          <TextField 
             id=""
             className="mainField"
             label="Share plans for any future trips"
             variant="outlined"
             inputRef={postInput}
+            border="none"
           />
           <TextField
             id=""

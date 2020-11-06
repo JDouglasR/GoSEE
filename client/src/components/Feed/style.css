@@ -9,7 +9,7 @@ div .postName {
     font-size: 13px;
     font-weight: 600;
     margin-top: -5px;
-    margin-bottom: 2px;
+    margin-bottom: 5px;
     padding-top: 5px;
 }
 
@@ -19,22 +19,25 @@ div .infinite-scroll-component  {
     margin-top: 15px;
 }
 
+
+div .feed-posts {
+    margin: 5px 0px 10px 0px;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+}
+div .feed-posts .hashtag {
+    color: #1f6421;
+    margin-top: 6px;
+}
+div .feed-posts .time {
+    float: right;
+    margin-top: 10px;
+    font-size: 13px;
+    color: #1f6421;
+    font-weight: 300; 
+}
+
 div .infinite-scroll-component div { 
     font-family: 'Work Sans', sans-serif;
-}
-
-div .infinite-scroll-component div:hover {
-    background-color: #eeeeee;
-}
-
-div .infinite-scroll-component .hashtag {
-    font-weight: 300; 
-    color: #1f6421;
-    margin-top: 3px;
-}
-div .infinite-scroll-component .time {
-    font-weight: 300; 
-    color: #1f6421;
-    font-size: 13px;
-    margin-top: 4px;
 }
