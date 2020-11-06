@@ -11,7 +11,6 @@ import { PromiseProvider } from "mongoose";
 
 function Home(props) {
   const [items, setItems] = useState([]);
-  const [users, setUsers] = useState({});
 
   //   function handleInputChange(event) {
   //     const { value } = event.target;
@@ -54,16 +53,6 @@ function Home(props) {
       .catch((err) => console.error(err));
   }
 
-  function userData(id) {
-    API.getUser(id).then((res, err) => {
-      if (res) {
-        setUsers(res.data);
-      } else {
-        console.log(err);
-      }
-    });
-  }
-
   useEffect(() => {
     showAllPosts();
   }, []);
@@ -71,10 +60,14 @@ function Home(props) {
   return (
     <React.Fragment>
       <Logo />
-      <Sidebar id={props.id} />
+      <Sidebar user={props.user} />
       <Header />
       <Container>
-        <Post getCityPosts={getCityPosts} makeAPost={makeAPost} id={props.id} />
+        <Post
+          getCityPosts={getCityPosts}
+          makeAPost={makeAPost}
+          user={props.user}
+        />
         <Feed showAllPosts={showAllPosts} items={items} />
       </Container>
     </React.Fragment>

@@ -55,9 +55,35 @@ module.exports = {
       });
   },
 
+  // Find all posts from one user
+  findByUser: function (req, res) {
+    const cityName = req.params.city;
+    db.Users.aggregate([
+      {
+        $lookup: {
+          from: "posts",
+          localField: "posts",
+          foreignField: "_id",
+          as: "posts",
+        },
+      },
+      {
+        $unwind: "$posts",
+      },
+    ])
+      .then((dbUsers) => {
+        var x = dbUsers.filter((city) => {
+          return city.posts.hashtag.toLowerCase() === cityName.toLowerCase();
+        });
+        res.json(x);
+      })
+      .catch((err) => {
+        res.json(err);
+      });
+  },
+
   // Save user posts
   savePost: function (req, res) {
-    console.log(req.body);
     db.Posts.create(req.body)
       .then(({ _id }) =>
         db.Users.findOneAndUpdate(

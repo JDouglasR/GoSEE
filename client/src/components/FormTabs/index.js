@@ -93,7 +93,6 @@ function FormTabs(props) {
   // Login User
   const handleLoginSubmit = (event) => {
     event.preventDefault();
-    console.log(loginInput);
     API.loginUser(loginInput)
       .then((id) => {
         props.setUser(id.data);
@@ -122,93 +121,92 @@ function FormTabs(props) {
         <Tab label="Login" />
       </Tabs>
 
-      <TabPanel value={value} index={0}>
-        <div className="lp-form">
-          <FormControl>
-            <InputLabel htmlFor="my-input">First Name</InputLabel>
-            <Input
-              id="my-input"
-              name="firstName"
-              aria-describedby="my-helper-text"
-              onChange={handleInputChange}
-              required
-            />
-            <FormHelperText id="my-helper-text">
-              You must enter your first name.
-            </FormHelperText>
-          </FormControl>
-          <FormControl>
-            <InputLabel htmlFor="my-input">Last Name</InputLabel>
-            <Input
-              id="my-input"
-              name="lastName"
-              aria-describedby="my-helper-text"
-              onChange={handleInputChange}
-              required
-            />
-            <FormHelperText id="my-helper-text">
-              You must enter your last name.
-            </FormHelperText>
-          </FormControl>
-          <FormControl>
-            <InputLabel htmlFor="my-input">Email address</InputLabel>
-            <Input
-              id="my-input"
-              name="email"
-              type="email"
-              aria-describedby="my-helper-text"
-              onChange={handleInputChange}
-              required
-            />
-            <FormHelperText id="my-helper-text">
-              We'll never share your email.
-            </FormHelperText>
-          </FormControl>
-          <FormControl>
-            <InputLabel htmlFor="my-input">Password</InputLabel>
-            <Input
-              id="my-input"
-              name="password"
-              type="password"
-              aria-describedby="my-helper-text"
-              onChange={handleInputChange}
-              required
-            />
-            <FormHelperText id="my-helper-text">
-              We'll never share your email.
-            </FormHelperText>
-          </FormControl>
-          <FormControl>
-            <InputLabel htmlFor="my-input">City</InputLabel>
-            <Input
-              id="my-input"
-              name="city"
-              aria-describedby="my-helper-text"
-              onChange={handleInputChange}
-            />
-            <FormHelperText id="my-helper-text">
-              We'll never share your email.
-            </FormHelperText>
-          </FormControl>
-          <FormControl>
-            <Button
-              htmlFor="my-input"
-              className="submitButton"
-              variant="contained"
-              onClick={handleFormSubmit}
-            >
-              Submit
-            </Button>
-          </FormControl>
-        </div>
+      <TabPanel value={value} index={0} classes="lp-form">
+        <FormControl>
+          <InputLabel htmlFor="firstName">First Name</InputLabel>
+          <Input
+            id="firstName"
+            name="firstName"
+            aria-describedby="my-helper-text"
+            onChange={handleInputChange}
+            required
+          />
+          <FormHelperText id="my-helper-text">
+            You must enter your first name.
+          </FormHelperText>
+        </FormControl>
+        <FormControl>
+          <InputLabel htmlFor="lastName">Last Name</InputLabel>
+          <Input
+            id="lastName"
+            name="lastName"
+            aria-describedby="my-helper-text"
+            onChange={handleInputChange}
+            required
+          />
+          <FormHelperText id="my-helper-text">
+            You must enter your last name.
+          </FormHelperText>
+        </FormControl>
+        <FormControl>
+          <InputLabel htmlFor="email">Email address</InputLabel>
+          <Input
+            id="email"
+            name="email"
+            type="email"
+            aria-describedby="my-helper-text"
+            onChange={handleInputChange}
+            required
+          />
+          <FormHelperText id="my-helper-text">
+            We'll never share your email.
+          </FormHelperText>
+        </FormControl>
+        <FormControl>
+          <InputLabel htmlFor="password">Password</InputLabel>
+          <Input
+            id="password"
+            name="password"
+            type="password"
+            aria-describedby="my-helper-text"
+            onChange={handleInputChange}
+            required
+          />
+          <FormHelperText id="my-helper-text">
+            We'll never share your email.
+          </FormHelperText>
+        </FormControl>
+        <FormControl>
+          <InputLabel htmlFor="city">City</InputLabel>
+          <Input
+            id="city"
+            name="city"
+            aria-describedby="my-helper-text"
+            onChange={handleInputChange}
+          />
+          <FormHelperText id="my-helper-text">
+            We'll never share your email.
+          </FormHelperText>
+        </FormControl>
+        <FormControl>
+          <Button
+            htmlFor="registerSubmitButton"
+            id="registerSubmitButton"
+            className="submitButton"
+            variant="contained"
+            onClick={handleFormSubmit}
+          >
+            Submit
+          </Button>
+        </FormControl>
       </TabPanel>
 
       <TabPanel value={value} index={1}>
         <div className="lp-form">
           <FormControl>
-            <InputLabel htmlFor="my-input">Email address</InputLabel>
+            <InputLabel htmlFor="loginEmail">Email address</InputLabel>
             <Input
-              id="email"
+              id="loginEmail"
               aria-describedby="my-helper-text"
               type="email"
               required
@@ -218,9 +216,9 @@ function FormTabs(props) {
             <FormHelperText id="my-helper-text"></FormHelperText>
           </FormControl>
           <FormControl>
-            <InputLabel htmlFor="my-input">Password</InputLabel>
+            <InputLabel htmlFor="loginPassword">Password</InputLabel>
             <Input
-              id="password"
+              id="loginPassword"
               aria-describedby="my-helper-text"
               type="password"
               required
@@ -230,7 +228,8 @@ function FormTabs(props) {
             <FormHelperText id="my-helper-text"></FormHelperText>
           </FormControl>
           <Button
-            id="submitButton"
+            htmlFor="loginSubmit"
+            id="loginSubmit"
             className="submitButton"
             variant="contained"
             onClick={handleLoginSubmit}
@@ -244,7 +243,7 @@ function FormTabs(props) {
 
   return (
     <div>
-      <span className="bottom-right">
+      <div className="bottom-right">
         <h1>CTA Title: Want to Travel? </h1>
         <p>Paragraph explaining how easy it is to plan trips with our app.</p>
         {["right"].map((anchor) => (
@@ -259,7 +258,7 @@ function FormTabs(props) {
             </Drawer>
           </React.Fragment>
         ))}
-      </span>
+      </div>
     </div>
   );
 }
