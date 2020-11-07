@@ -23,9 +23,9 @@ Installation: You will need to have Node installed and then run `npm install` to
 ### **Image**
 
 Landing Page:
-![image of landing page](/client/public/landing_page.png)
+![image of landing page](./client/public/landing_page.png)
 Home Page:
-![image of home page](/client/public/home_page.png)
+![image of home page](./client/public/home_page.png)
 
 ### **Contributing**
 
