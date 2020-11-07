@@ -8,7 +8,7 @@ MIT
 
 ## **Description**
 
-This group project was .... Deployed Heroku can be found at https://+++++++.herokuapp.com/
+This group project was .... Deployed Heroku can be found at https://go-see.herokuapp.com/
 
 ## **Collaborators**
 

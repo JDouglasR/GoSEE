@@ -18,7 +18,12 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Users");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Users", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+});
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
 
