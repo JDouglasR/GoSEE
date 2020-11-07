@@ -2,7 +2,6 @@ import React from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import "./style.css";
 
-
 function Feed(props) {
   return (
     <React.Fragment>
@@ -54,7 +53,7 @@ function Feed(props) {
               month[9] = "October";
               month[10] = "November";
               month[11] = "December";
-              
+
               return (
                 <div className="feed-posts" key={index}>
                   <p className="postName">
@@ -66,7 +65,7 @@ function Feed(props) {
                   >
                     <span className="hashtag">#{i.posts.hashtag}</span>
                     <span className="time">
-                     { month[date.getMonth()] + 
+                      {month[date.getMonth()] +
                         " " +
                         date.getDay() +
                         ", " +

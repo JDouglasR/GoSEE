@@ -22,8 +22,10 @@ Installation: You will need to have Node installed and then run `npm install` to
 
 ### **Image**
 
-Homepage:
-![image of homepage](/public/assets/img/B&F-home.png)
+Landing Page:
+![image of landing page](/client/public/landing_page.png)
+Home Page:
+![image of home page](/client/public/home_page.png)
 
 ### **Contributing**
 
