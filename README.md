@@ -8,7 +8,16 @@ MIT
 
 ## **Description**
 
-This group project was .... Deployed Heroku can be found at https://+++++++.herokuapp.com/
+This group project was to create a full stack application with Reactjs as the front end. We wanted to build a social traveling app that allows users from around the world to meet, talk about locations to travel to, and even plan trips together! Our MVP allows users to create an account and post to a main feed that all users can see and respond to! Deployed Heroku can be found at https://go-see.herokuapp.com/
+
+## **Pipeline Ideas**
+
+- Show other users' information
+- Profile Page
+  – Update information
+- Chat function
+- API’s for planning your trip –- hotel/airline
+- API's for location information -- things to do, notable places to visit
 
 ## **Collaborators**
 
@@ -22,8 +31,10 @@ Installation: You will need to have Node installed and then run `npm install` to
 
 ### **Image**
 
-Homepage:
-![image of homepage](/public/assets/img/B&F-home.png)
+Landing Page:
+![image of landing page](./client/public/landing_page.png)
+Home Page:
+![image of home page](./client/public/home_page.png)
 
 ### **Contributing**
 

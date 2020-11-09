@@ -2,7 +2,6 @@ import React from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import "./style.css";
 
-
 function Feed(props) {
   return (
     <React.Fragment>
@@ -55,9 +54,12 @@ function Feed(props) {
               month[10] = "November";
               month[11] = "December";
 
+<<<<<<< HEAD
               const hours = new Date(i.posts.day).getHours();
               const ampm = (hours >= 12) ? " pm" : " am";
 
+=======
+>>>>>>> c071cacdec1096e502e152740d7d63922115ba09
               return (
                 <div className="feed-posts" key={index}>
                   <p className="postName">
@@ -69,7 +71,7 @@ function Feed(props) {
                   >
                     <span className="hashtag">#{i.posts.hashtag}</span>
                     <span className="time">
-                     { month[date.getMonth()] + 
+                      {month[date.getMonth()] +
                         " " +
                         date.getDate() +
                         ", " +

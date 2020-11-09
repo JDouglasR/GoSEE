@@ -9,33 +9,33 @@ import { Container } from "@material-ui/core";
 
 function Home(props) {
   const [items, setItems] = useState([]);
-  const [user, setUser] = useState([]);  
+  const [user, setUser] = useState([]);
 
   useEffect(() => {
     getUser();
   }, []);
 
   // Get user data and filter based on logged in ID
-  function getUser() {    
+  function getUser() {
     API.getUser()
-    .then((res) => {
-      var newUserArray = res.data.filter(user => {
-        return user._id == props.user._id;
+      .then((res) => {
+        var newUserArray = res.data.filter((user) => {
+          return user._id == props.user._id;
+        });
+        var newMap = newUserArray.map((user) => {
+          return {
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.email,
+            city: user.city,
+            day: user.posts.day,
+            post: user.posts.post,
+            hashtag: user.posts.hashtag,
+          };
+        });
+        setUser(newMap);
       })
-      var newMap = newUserArray.map(user => {
-        return {
-          firstName: user.firstName,
-          lasrName: user.lasrName,
-          email: user.email,
-          city: user.city,
-          day: user.posts.day,
-          post: user.posts.post,
-          hashtag: user.posts.hashtag
-        }
-      }) 
-      setUser(newMap);      
-    })   
-    .catch((err) => console.log(err));
+      .catch((err) => console.log(err));
   }
 
   function showAllPosts() {
@@ -43,7 +43,7 @@ function Home(props) {
       .then((res) => {
         setItems(items.concat(res.data));
       })
-      .catch((err) => console.error(err));   
+      .catch((err) => console.error(err));
   }
 
   function getCityPosts(city) {
@@ -71,10 +71,10 @@ function Home(props) {
     showAllPosts();
   }, []);
 
-  return ( 
-    <React.Fragment>      
+  return (
+    <React.Fragment>
       <Logo />
-      <Sidebar user={props.user} items={items} userPosts={user}/>
+      <Sidebar user={props.user} items={items} userPosts={user} />
       <Header />
       <Container>
         <Post
