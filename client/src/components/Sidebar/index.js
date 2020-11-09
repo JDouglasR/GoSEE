@@ -75,7 +75,10 @@ export default function TemporaryDrawer(props) {
               month[9] = "October";
               month[10] = "November";
               month[11] = "December";
-              
+
+              const hours = new Date(i.day).getHours();
+              const ampm = (hours >= 12) ? " pm" : " am";
+
               return (
                 <div className="sidebar-posts">
                   <p className="post">{i.post}</p>
@@ -83,9 +86,13 @@ export default function TemporaryDrawer(props) {
                     <span className="time">
                      { month[date.getMonth()] + 
                         " " +
-                        date.getDay() +
+                        date.getDate() +
                         ", " +
-                        date.getFullYear()}
+                        date.getFullYear() +
+                        " | " +
+                        ((date.getHours() + 24) % 12 || 12) +
+                        ":" +
+                        date.getMinutes() + ampm}
                     </span>
                 </div>
               );
