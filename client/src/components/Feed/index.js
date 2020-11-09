@@ -54,7 +54,10 @@ function Feed(props) {
               month[9] = "October";
               month[10] = "November";
               month[11] = "December";
-              
+
+              const hours = new Date(i.posts.day).getHours();
+              const ampm = (hours >= 12) ? " pm" : " am";
+
               return (
                 <div className="feed-posts" key={index}>
                   <p className="postName">
@@ -68,9 +71,13 @@ function Feed(props) {
                     <span className="time">
                      { month[date.getMonth()] + 
                         " " +
-                        date.getDay() +
+                        date.getDate() +
                         ", " +
-                        date.getFullYear()}
+                        date.getFullYear() +
+                        " | " +
+                        ((date.getHours() + 24) % 12 || 12) +
+                        ":" +
+                        date.getMinutes() + ampm}
                     </span>
                   </div>
                 </div>
