@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
+const config = require("config");
+const jwt = require("jsonwebtoken");
 const passportLocalMongoose = require("passport-local-mongoose");
 SALT_WORK_FACTOR = 10;
 
@@ -9,24 +11,29 @@ const UserSchema = new Schema({
   firstName: {
     type: String,
     trim: true,
-    // required: true
+    required: true,
   },
   lastName: {
     type: String,
     trim: true,
-    // required: true
+    required: true,
   },
   email: {
     type: String,
     trim: true,
+    unique: true,
+    required: true,
   },
   password: {
     type: String,
     trim: true,
+    required: true,
+    minlength: 8,
   },
   city: {
     type: String,
     trim: true,
+    required: true,
   },
   posts: [
     {
@@ -34,6 +41,10 @@ const UserSchema = new Schema({
       ref: "Posts",
     },
   ],
+  register_date: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 UserSchema.plugin(passportLocalMongoose, { usernameField: "email" });
@@ -45,11 +56,11 @@ UserSchema.pre("save", function (next) {
   if (!user.isModified("password")) return next();
 
   // generate a salt
-  bcrypt.genSalt(SALT_WORK_FACTOR, function (err, salt) {
+  bcrypt.genSalt(SALT_WORK_FACTOR, (err, salt) => {
     if (err) return next(err);
 
     // hash the password using our new salt
-    bcrypt.hash(user.password, salt, function (err, hash) {
+    bcrypt.hash(user.password, salt, (err, hash) => {
       if (err) return next(err);
       // override the cleartext password with the hashed one
       user.password = hash;

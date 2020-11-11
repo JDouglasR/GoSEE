@@ -121,7 +121,7 @@ function FormTabs(props) {
         <Tab label="Login" />
       </Tabs>
 
-      <TabPanel className="lp-form" value={value} index={0} >
+      <TabPanel className="lp-form" value={value} index={0}>
         <FormControl>
           <InputLabel htmlFor="firstName">First Name</InputLabel>
           <Input
@@ -173,7 +173,21 @@ function FormTabs(props) {
             required
           />
           <FormHelperText id="my-helper-text">
-          You must enter a password.
+            Password must be at least 8 characters.
+          </FormHelperText>
+        </FormControl>
+        <FormControl>
+          <InputLabel htmlFor="password">Confirm Password</InputLabel>
+          <Input
+            id="passwordCheck"
+            name="passwordCheck"
+            type="password"
+            aria-describedby="my-helper-text"
+            onChange={handleInputChange}
+            required
+          />
+          <FormHelperText id="my-helper-text">
+            You must enter the same password.
           </FormHelperText>
         </FormControl>
         <FormControl>
@@ -185,7 +199,7 @@ function FormTabs(props) {
             onChange={handleInputChange}
           />
           <FormHelperText id="my-helper-text">
-          Please enter your city.
+            Please enter your city.
           </FormHelperText>
         </FormControl>
         <FormControl>
@@ -199,7 +213,6 @@ function FormTabs(props) {
             Submit
           </Button>
         </FormControl>
-
       </TabPanel>
 
       <TabPanel value={value} index={1}>
@@ -244,24 +257,37 @@ function FormTabs(props) {
 
   return (
     <div>
-    <span className="bottom-right">
-      <h1>Looking to Travel? <span style={{fontFamily: "Roboto, sans-serif", fontWeight: "900",  color: "white"}} >
-       <span style={{color: "#f7ee24"}}> GO</span>SEE</span> </h1>
-      <p>GO SEE is your favorite social media app before, during, and after traveling.</p>
-      {["right"].map((anchor) => (
-        <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>Get Started </Button>
-          <Drawer
-            anchor={anchor}
-            open={drawerState[anchor]}
-            onClose={toggleDrawer(anchor, false)}
+      <span className="bottom-right">
+        <h1>
+          Looking to Travel?{" "}
+          <span
+            style={{
+              fontFamily: "Roboto, sans-serif",
+              fontWeight: "900",
+              color: "white",
+            }}
           >
-            {list(anchor)}
-          </Drawer>
-        </React.Fragment>
-      ))}
-    </span>
-  </div>
+            <span style={{ color: "#f7ee24" }}> GO</span>SEE
+          </span>{" "}
+        </h1>
+        <p>
+          GO SEE is your favorite social media app before, during, and after
+          traveling.
+        </p>
+        {["right"].map((anchor) => (
+          <React.Fragment key={anchor}>
+            <Button onClick={toggleDrawer(anchor, true)}>Get Started </Button>
+            <Drawer
+              anchor={anchor}
+              open={drawerState[anchor]}
+              onClose={toggleDrawer(anchor, false)}
+            >
+              {list(anchor)}
+            </Drawer>
+          </React.Fragment>
+        ))}
+      </span>
+    </div>
   );
 }
 

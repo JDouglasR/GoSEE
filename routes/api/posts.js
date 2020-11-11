@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const postsController = require("../../controllers/postsController");
 const isAuthenticated = require("../../config/middleware/isAuthenticated");
-
+const auth = require("../../middleware/auth");
 // Matches with "/api/posts"
 router
   .route("/")
@@ -9,7 +9,7 @@ router
   .get((req, res) => {
     postsController.findAll(req, res);
   })
-  .post((req, res) => {
+  .post(auth, (req, res) => {
     postsController.savePost(req, res);
   });
 

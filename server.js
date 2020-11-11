@@ -1,13 +1,18 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const routes = require("./routes");
+const cors = require("cors");
+const config = require("config");
 const PORT = process.env.PORT || 3001;
+require("dotenv").config();
 
 // Creating express app
 const app = express();
+
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors());
 
 // Add routes, both API and view
 app.use(routes);
@@ -18,16 +23,25 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Users", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: false,
-});
+const db = config.get("mongoURI");
+mongoose
+  .connect(
+    db ||
+      process.env.MONGODB_CONNECTION_STRING ||
+      process.env.MONGODB_URI ||
+      "mongodb://localhost/Users",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false,
+    }
+  )
+  .then(() => console.log("MongoDB Connected..."))
+  .catch((err) => console.log(err));
 mongoose.Promise = global.Promise;
-const db = mongoose.connection;
 
 // Start the API server
-app.listen(PORT, function () {
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+app.listen(PORT, () => {
+  console.log(`🌎  ==> Server now listening on PORT ${PORT}!`);
 });
