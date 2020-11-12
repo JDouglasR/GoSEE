@@ -8,7 +8,7 @@ import API from "../utils/API";
 import { Container } from "@material-ui/core";
 
 function Home(props) {
-  const [items, setItems] = useState([]);
+  const [items, setItems, updateItems] = useState([]);
   const [user, setUser] = useState([]);
 
   useEffect(() => {
@@ -41,10 +41,22 @@ function Home(props) {
   function showAllPosts() {
     API.getPosts()
       .then((res) => {
+        const sortedPosts = res.data.sort() 
         setItems(items.concat(res.data));
+        console.log(res.data[2].posts.day);
+        
       })
       .catch((err) => console.error(err));
   }
+
+  // function sortAllPosts() {
+  //   API.getPosts()
+  //     .then((res) => {
+  //       setItems(items.sort(res.data));
+  //       console.log(res.data);
+  //     })
+  //     .catch((err) => console.error(err));
+  // }
 
   function getCityPosts(city) {
     API.getCityPosts(city)
@@ -67,14 +79,28 @@ function Home(props) {
       .catch((err) => console.error(err));
   }
 
+
+  const handleRemoveItem = (id) => {
+    console.log("Home.js");
+    API.deletePost(id)
+      .then(() => {
+        showAllPosts();
+      })
+      .catch((err) => console.error(err));
+   };
+
+
+
+
   useEffect(() => {
     showAllPosts();
+    // sortAllPosts();
   }, []);
 
   return (
     <React.Fragment>
       <Logo />
-      <Sidebar user={props.user} items={items} userPosts={user} />
+      <Sidebar user={props.user} items={items} userPosts={user} handleRemoveItem={handleRemoveItem}/>
       <Header />
       <Container>
         <Post

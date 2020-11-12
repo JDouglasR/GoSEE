@@ -3,6 +3,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import "./style.css";
 
 function Feed(props) {
+  
   return (
     <React.Fragment>
       {/* <Grid
@@ -55,7 +56,7 @@ function Feed(props) {
               month[11] = "December";
 
               const hours = new Date(i.posts.day).getHours();
-              const ampm = hours >= 12 ? " pm" : " am";
+              const ampm = (hours >= 12) ? " pm" : " am";
 
               return (
                 <div className="feed-posts" key={index}>
@@ -76,12 +77,11 @@ function Feed(props) {
                         " | " +
                         ((date.getHours() + 24) % 12 || 12) +
                         ":" +
-                        date.getMinutes() +
-                        ampm}
+                        ((date.getMinutes()<10?'0':'') + date.getMinutes()) + ampm}
                     </span>
                   </div>
                 </div>
-              );
+              );  
             } else {
               return "";
             }
@@ -91,6 +91,6 @@ function Feed(props) {
       {/* </Grid> */}
     </React.Fragment>
   );
-}
+} 
 
 export default Feed;

@@ -19,6 +19,11 @@ module.exports = {
       {
         $unwind: "$posts",
       },
+      // {
+      //   $sort:{
+      //     $posts:{ day: -1} 
+      //   },
+      // },
     ])
       .then((dbUsers) => {
         return res.json(dbUsers);
@@ -94,4 +99,14 @@ module.exports = {
       )
       .then(() => module.exports.findAll(req, res));
   },
+
+  deletePost: function (req, res) {
+    console.log("postController")
+    db.Users.deleteOne({ id: '' }, function (err) {
+      if (err) return handleError(err);
+  })
+}
+  
+
+
 };

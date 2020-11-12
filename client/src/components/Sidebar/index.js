@@ -4,11 +4,13 @@ import "./style.css";
 import { Avatar } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+
 
 const useStyles = makeStyles({
   list: {
-    width: 400,
-  },
+    height: "auto",
+  }
 });
 
 export default function TemporaryDrawer(props) {
@@ -81,6 +83,7 @@ export default function TemporaryDrawer(props) {
 
               return (
                 <div className="sidebar-posts">
+                  <span className="delete-icon" onClick={ ()=> props.handleRemoveItem(i.id)} ><DeleteForeverIcon /></span>
                   <p className="post">{i.post}</p>
                   <p className="hashtag">#{i.hashtag}</p>
                     <span className="time">
@@ -92,7 +95,7 @@ export default function TemporaryDrawer(props) {
                         " | " +
                         ((date.getHours() + 24) % 12 || 12) +
                         ":" +
-                        date.getMinutes() + ampm}
+                        ((date.getMinutes()<10?'0':'') + + date.getMinutes()) + ampm}
                     </span>
                 </div>
               );
