@@ -8,7 +8,7 @@ import API from "../utils/API";
 import { Container } from "@material-ui/core";
 
 function Home(props) {
-  const [items, setItems] = useState([]);
+  const [items, setItems, updateItems] = useState([]);
   const [user, setUser] = useState([]);
 
   useEffect(() => {
@@ -42,9 +42,21 @@ function Home(props) {
     API.getPosts()
       .then((res) => {
         setItems(items.concat(res.data));
+        // updateItems(items.sort(res.data[i].posts.day));
+        console.log(res.data[2].posts.day);
+        
       })
       .catch((err) => console.error(err));
   }
+
+  // function sortAllPosts() {
+  //   API.getPosts()
+  //     .then((res) => {
+  //       setItems(items.sort(res.data));
+  //       console.log(res.data);
+  //     })
+  //     .catch((err) => console.error(err));
+  // }
 
   function getCityPosts(city) {
     API.getCityPosts(city)
@@ -67,8 +79,18 @@ function Home(props) {
       .catch((err) => console.error(err));
   }
 
+
+  // const handleRemoveItem = (e) => {
+  //   const name = e.target.getAttribute("name")
+  //   updateList(list.filter(item => i.post !== name));
+  //  };
+
+
+
+
   useEffect(() => {
     showAllPosts();
+    // sortAllPosts();
   }, []);
 
   return (

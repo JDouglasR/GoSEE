@@ -19,6 +19,11 @@ module.exports = {
       {
         $unwind: "$posts",
       },
+      // {
+      //   $sort:{
+      //     $posts:{ day: -1} 
+      //   },
+      // },
     ])
       .then((dbUsers) => {
         return res.json(dbUsers);

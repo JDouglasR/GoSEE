@@ -41,3 +41,19 @@ div .feed-posts .time {
 div .infinite-scroll-component div { 
     font-family: 'Work Sans', sans-serif;
 }
+
+
+
+@media only screen and (max-width: 600px) {
+    div .feed-posts {
+        padding-bottom: 30px;
+        border-radius: 10px;
+        position: relative;
+    }
+    div .feed-posts .time {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+    }
+    
+}
