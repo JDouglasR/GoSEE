@@ -83,7 +83,7 @@ export default function TemporaryDrawer(props) {
 
               return (
                 <div className="sidebar-posts">
-                  <span className="delete-icon" onClick={ ()=> props.handleRemoveItem(i.id)} ><DeleteForeverIcon /></span>
+                 {/* <DeleteForeverIcon onClick={() => deletePost(posts._id)}  className="delete-icon" /> */}
                   <p className="post">{i.post}</p>
                   <p className="hashtag">#{i.hashtag}</p>
                     <span className="time">

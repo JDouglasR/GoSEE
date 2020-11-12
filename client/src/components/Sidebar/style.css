@@ -65,6 +65,7 @@ div .post-title {
 
 div .delete-icon {
     float: right;
+    cursor: pointer;
 }
 
 .sidebar-posts {

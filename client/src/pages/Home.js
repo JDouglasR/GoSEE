@@ -31,6 +31,7 @@ function Home(props) {
             day: user.posts.day,
             post: user.posts.post,
             hashtag: user.posts.hashtag,
+            id: user.posts._id,
           };
         });
         setUser(newMap);
@@ -79,15 +80,15 @@ function Home(props) {
       .catch((err) => console.error(err));
   }
 
-
-  const handleRemoveItem = (id) => {
-    console.log("Home.js");
-    API.deletePost(id)
-      .then(() => {
-        showAllPosts();
-      })
-      .catch((err) => console.error(err));
-   };
+  // Delete Function
+  // const handleRemoveItem = (id) => {
+  //   console.log("Home.js");
+  //   API.deletePost(id)
+  //     .then(() => {
+  //       showAllPosts();
+  //     })
+  //     .catch((err) => console.error(err));
+  //  };
 
 
 
@@ -100,7 +101,9 @@ function Home(props) {
   return (
     <React.Fragment>
       <Logo />
-      <Sidebar user={props.user} items={items} userPosts={user} handleRemoveItem={handleRemoveItem}/>
+      <Sidebar user={props.user} items={items} userPosts={user} 
+      // handleRemoveItem={handleRemoveItem}
+      />
       <Header />
       <Container>
         <Post
