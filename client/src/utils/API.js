@@ -24,7 +24,13 @@ export default {
   // Login verification 
   loginUser: function (user) {
     return axios.post("/api/user/login", user);
+  },
+  // Delete Post  
+  deletePost: function (id) {
+    console.log("utiles/API")
+    return axios.delete("/api/posts/", {params: {id: "id"}});
   }
+
 
   
 };

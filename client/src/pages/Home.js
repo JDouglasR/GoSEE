@@ -41,8 +41,8 @@ function Home(props) {
   function showAllPosts() {
     API.getPosts()
       .then((res) => {
+        const sortedPosts = res.data.sort() 
         setItems(items.concat(res.data));
-        // updateItems(items.sort(res.data[i].posts.day));
         console.log(res.data[2].posts.day);
         
       })
@@ -80,10 +80,14 @@ function Home(props) {
   }
 
 
-  // const handleRemoveItem = (e) => {
-  //   const name = e.target.getAttribute("name")
-  //   updateList(list.filter(item => i.post !== name));
-  //  };
+  const handleRemoveItem = (id) => {
+    console.log("Home.js");
+    API.deletePost(id)
+      .then(() => {
+        showAllPosts();
+      })
+      .catch((err) => console.error(err));
+   };
 
 
 
@@ -96,7 +100,7 @@ function Home(props) {
   return (
     <React.Fragment>
       <Logo />
-      <Sidebar user={props.user} items={items} userPosts={user} />
+      <Sidebar user={props.user} items={items} userPosts={user} handleRemoveItem={handleRemoveItem}/>
       <Header />
       <Container>
         <Post

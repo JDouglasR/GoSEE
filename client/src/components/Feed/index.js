@@ -57,10 +57,6 @@ function Feed(props) {
 
               const hours = new Date(i.posts.day).getHours();
               const ampm = (hours >= 12) ? " pm" : " am";
-              // console.log(i.posts);
-
-      
-
 
               return (
                 <div className="feed-posts" key={index}>
@@ -81,7 +77,7 @@ function Feed(props) {
                         " | " +
                         ((date.getHours() + 24) % 12 || 12) +
                         ":" +
-                        ((date.getMinutes()<10?'0':'') + + date.getMinutes()) + ampm}
+                        ((date.getMinutes()<10?'0':'') + date.getMinutes()) + ampm}
                     </span>
                   </div>
                 </div>

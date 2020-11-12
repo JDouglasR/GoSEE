@@ -11,12 +11,22 @@ router
   })
   .post((req, res) => {
     postsController.savePost(req, res);
-  });
+  })
+  .delete((req, res) => {
+    console.log("delete post")
+    postsController.deletePost(req.body.id);
+  })
 
 // Route for getting posts with city name
 router.route("/:city").get((req, res) => {
+  console.log("api/post.js")
   postsController.findById(req, res);
 });
+
+
+
+
+
 
 // .get(postsController.findAll)
 
